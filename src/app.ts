@@ -3,10 +3,14 @@ import express, {
   type Request,
   type Response,
 } from "express";
+import { router } from "./app/routes";
+import { commonMiddlewares } from "./app/middlewares";
 
 const app: Application = express();
 
-app.use([express.json(), express.urlencoded({ extended: true })]);
+app.use(commonMiddlewares);
+
+app.use("/api/v1", router);
 
 app.get("/", (req: Request, res: Response) => {
   res.status(200).json({
