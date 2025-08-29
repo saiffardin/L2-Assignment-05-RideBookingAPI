@@ -1,26 +1,12 @@
 import { model, Schema } from "mongoose";
 import { IDriver, IVehicleInfo } from "./interfaces/IDriver";
-import { DriverStatus, UserStatus } from "@/app/constants";
-// import { IAuthProvider, IUser } from "./interfaces";
-// import { IsActive, Role } from "./constants/enums";
-
-/*
-const authProviderSchema = new Schema<IAuthProvider>(
-  {
-    provider: { type: String, required: true },
-    providerId: { type: String, required: true },
-  },
-  {
-    versionKey: false,
-    _id: false,
-  }
-);
-*/
+import { DriverStatus, UserStatus, VehicleType } from "@/app/constants";
 
 const vehicleInfoSchema = new Schema<IVehicleInfo>(
   {
     type: {
       type: String,
+      enum: Object.values(VehicleType),
       required: true,
     },
     numberPlate: {
@@ -55,19 +41,6 @@ const driverSchema = new Schema<IDriver>(
       enum: Object.values(DriverStatus),
       default: DriverStatus.ONLINE,
     },
-
-    /*
-    rating: {
-      average: { type: Number, default: 0 },
-      count: { type: Number, default: 0 },
-    },
-    earning: {
-      total: { type: Number, default: 0 },
-      count: { type: Number, default: 0 },
-    },
-    */
-
-    // auths: [authProviderSchema],
   },
   {
     timestamps: true,

@@ -1,16 +1,13 @@
 import { Router } from "express";
 import { DriverControllers } from "./controllers";
-// import { Role } from "./constants/enums";
-// import { UserControllers } from "./controllers";
-// import { checkAuth } from "@/app/middlewares/checkAuth";
-// import { validateRequest } from "@/app/middlewares/validateRequest";
-// import { createUserZodSchema, updateUserZodSchema } from "./validations";
+import { createDriverZodSchema } from "./validations";
+import { validateZodRequest } from "@/app/middlewares/validateZodRequest";
 
 export const DriverRoutes = Router();
 
 DriverRoutes.post(
-  "/create",
-  // validateRequest(createUserZodSchema),
+  "/register",
+  validateZodRequest(createDriverZodSchema),
   DriverControllers.createDriver
 );
 
@@ -23,6 +20,6 @@ DriverRoutes.post(
 // UserRoutes.patch(
 //   "/:userId",
 //   checkAuth(...Object.values(Role)),
-//   validateRequest(updateUserZodSchema),
+//   validateZodRequest(updateUserZodSchema),
 //   UserControllers.updateUser
 // );

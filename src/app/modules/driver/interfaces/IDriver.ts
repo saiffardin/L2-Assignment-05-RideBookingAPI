@@ -14,24 +14,9 @@ export interface IDriver {
   phone?: string;
   picture?: string;
   isDeleted?: boolean;
-  userStatus?: UserStatus; // previously "IsActive"
+  userStatus?: UserStatus;
   isVerified?: boolean;
   tripStatus?: DriverStatus;
-
-  /*
-  rating?: {
-    average: number;
-    count: number;
-  };
-  earning?: {
-    total: number;
-    count: number;
-  };
-  */
-
-  // auths: IAuthProvider[];
-  // bookings?: Types.ObjectId[];
-  // guides?: Types.ObjectId[];
 }
 
 export interface IVehicleInfo {
