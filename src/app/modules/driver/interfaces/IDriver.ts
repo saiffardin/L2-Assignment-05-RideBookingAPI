@@ -1,13 +1,13 @@
 import { DriverStatus, UserStatus } from "@/app/constants";
+import { ILogin } from "@/app/interfaces/ILogin";
 import { Types } from "mongoose";
-// import { IAuthProvider } from "./IAuthProvider";
 
-export interface IDriver {
+export interface IDriver extends ILogin {
   _id?: Types.ObjectId;
 
   name: string;
-  email: string;
-  password: string;
+  // email: string;
+  // password: string;
   drivingLicense: string;
   vehicleInfo: IVehicleInfo;
 
