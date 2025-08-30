@@ -3,6 +3,9 @@ import { DriverControllers } from "./controllers";
 import { createDriverZodSchema } from "./validations";
 import { validateZodRequest } from "@/app/middlewares/validateZodRequest";
 import { loginZodSchema } from "@/app/utils/zod/loginZodSchema";
+import { LoginControllers } from "../login/login.controller";
+import { addUserRole } from "@/app/middlewares/addUserRole";
+import { Role } from "@/app/constants";
 
 export const DriverRoutes = Router();
 
@@ -15,7 +18,8 @@ DriverRoutes.post(
 DriverRoutes.post(
   "/login",
   validateZodRequest(loginZodSchema),
-  DriverControllers.loginDriver
+  addUserRole(Role.DRIVER),
+  LoginControllers.login
 );
 
 // UserRoutes.get(

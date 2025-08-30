@@ -2,10 +2,10 @@ import { envVars } from "@/app/config";
 import httpStatus from "http-status-codes";
 import { CustomJwtPayload } from "../jwt/types";
 import { generateToken, verifyToken } from "../jwt";
-import { Role, RoleType, UserStatus } from "@/app/constants";
+import { RoleType, UserStatus } from "@/app/constants";
 import AppError from "@/app/error-helpers/AppError";
-import { Driver } from "@/app/modules/driver/driver.model";
 import { IDriver } from "@/app/modules/driver/interfaces/IDriver";
+import { getModelByRole } from "../getModelByRole";
 
 export type UserType = Partial<IDriver>;
 
@@ -30,30 +30,7 @@ export const renewAccessToken = async (
     envVars.JWT_REFRESH_SECRET
   ) as CustomJwtPayload;
 
-  let UserModel;
-
-  switch (role) {
-    case Role.DRIVER:
-      UserModel = Driver;
-      break;
-
-    /*
-    case Role.RIDER:
-      UserModel = Rider;
-      break;
-
-    case Role.ADMIN:
-      UserModel = Admin;
-      break;
-    */
-
-    default:
-      throw new AppError(httpStatus.BAD_REQUEST, `Invalid role: ${role}`);
-  }
-
-  if (!UserModel) {
-    throw new Error(`Invalid role: ${role}`);
-  }
+  const UserModel = getModelByRole(role);
 
   const user = await UserModel.findOne({ email: verifiedRefreshToken.email });
 
