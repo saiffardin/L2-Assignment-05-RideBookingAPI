@@ -1,13 +1,10 @@
 import { TripStatus, UserStatus } from "@/app/constants";
+import { ILogin } from "@/app/interfaces/ILogin";
 import { Types } from "mongoose";
 
-export interface IRider {
+export interface IRider extends ILogin {
   _id?: Types.ObjectId;
-
   name: string;
-  email: string; // unique
-  password: string; // hashed
-
   phone?: string;
   picture?: string;
   isDeleted?: boolean;

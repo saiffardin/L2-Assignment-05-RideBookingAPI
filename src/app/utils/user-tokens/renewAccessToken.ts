@@ -4,10 +4,7 @@ import { CustomJwtPayload } from "../jwt/types";
 import { generateToken, verifyToken } from "../jwt";
 import { RoleType, UserStatus } from "@/app/constants";
 import AppError from "@/app/error-helpers/AppError";
-import { IDriver } from "@/app/modules/driver/interfaces/IDriver";
-import { getModelByRole } from "../getModelByRole";
-
-export type UserType = Partial<IDriver>;
+import { getModelByRole, UserType } from "../getModelByRole";
 
 const validateUserForTokenRenewal = async (user: UserType, role: RoleType) => {
   const { userStatus, isDeleted } = user;
