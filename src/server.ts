@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
-import { Server } from "http";
 import app from "./app";
-import { envVars } from "./app/config";
+import { Server } from "http";
 import mongoose from "mongoose";
+import { envVars } from "./app/config";
+import { seedSuperAdmin } from "./app/utils/seedSuperAdmin";
 
 let server: Server;
 
@@ -26,7 +27,7 @@ async function bootstrap() {
 
 (async () => {
   await bootstrap();
-  // await seedSuperAdmin();
+  await seedSuperAdmin();
 })();
 
 process.on("unhandledRejection", (reason, promise) => {
