@@ -15,8 +15,8 @@ interface IEnvConfig {
 
   BCRYPT_SALT_ROUND: string;
 
-  // SUPER_ADMIN_EMAIL: string;
-  // SUPER_ADMIN_PASSWORD: string;
+  SUPER_ADMIN_EMAIL: string;
+  SUPER_ADMIN_PASSWORD: string;
 
   // GOOGLE_CLIENT_SECRET: string;
   // GOOGLE_CLIENT_ID: string;
@@ -38,8 +38,8 @@ const requiredEnvVars = [
 
   "BCRYPT_SALT_ROUND",
 
-  // "SUPER_ADMIN_EMAIL",
-  // "SUPER_ADMIN_PASSWORD",
+  "SUPER_ADMIN_EMAIL",
+  "SUPER_ADMIN_PASSWORD",
 
   // "GOOGLE_CLIENT_SECRET",
   // "GOOGLE_CLIENT_ID",
