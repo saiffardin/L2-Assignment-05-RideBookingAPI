@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { RiderControllers } from "./controllers";
-import { createRiderZodSchema } from "./validations";
+import { createRiderZodSchema, loginRiderZodSchema } from "./validations";
 import { validateZodRequest } from "@/app/middlewares/validateZodRequest";
 
 export const RiderRoutes = Router();
@@ -11,12 +11,11 @@ RiderRoutes.post(
   RiderControllers.createRider
 );
 
-// RiderRoutes.post(
-//   "/login",
-//   validateZodRequest(loginZodSchema),
-//   addUserRole(Role.DRIVER),
-//   LoginControllers.login
-// );
+RiderRoutes.post(
+  "/login",
+  validateZodRequest(loginRiderZodSchema),
+  RiderControllers.loginRider
+);
 
 // UserRoutes.get(
 //   "/all-users",
