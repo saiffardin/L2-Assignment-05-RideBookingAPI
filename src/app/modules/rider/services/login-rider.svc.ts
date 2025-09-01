@@ -1,25 +1,22 @@
 import bcryptjs from "bcryptjs";
-import { RoleType } from "@/app/constants";
+import { Rider } from "../rider.model";
+import { Role } from "@/app/constants";
 import httpStatus from "http-status-codes";
-import { ILogin } from "@/app/interfaces/ILogin";
+import { IRider } from "../interfaces/IRider";
 import AppError from "@/app/error-helpers/AppError";
 import { createUserTokens } from "@/app/utils/user-tokens";
-import { getModelByRole } from "@/app/utils/getModelByRole";
 
-interface PayloadType extends ILogin {
-  role: RoleType;
-}
+export const loginRider = async (
+  payload: Pick<IRider, "email" | "password">
+) => {
+  const { email, password } = payload;
 
-export const login = async (payload: PayloadType) => {
-  const { email, password, role } = payload;
-
-  const UserModel = getModelByRole(role);
-  const user = await UserModel.findOne({ email });
+  const user = await Rider.findOne({ email });
 
   if (!user) {
     throw new AppError(
       httpStatus.BAD_REQUEST,
-      "User does not exist. Create account first."
+      "Rider does not exist. Create account first."
     );
   }
 
@@ -35,10 +32,8 @@ export const login = async (payload: PayloadType) => {
   const tokens = createUserTokens({
     userId: user._id,
     email,
-    role,
+    role: Role.RIDER,
   });
 
   return tokens;
 };
-
-export const LoginService = { login };

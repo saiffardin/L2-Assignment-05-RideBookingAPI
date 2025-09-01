@@ -7,7 +7,7 @@ import {
   phoneZodValidation,
   pictureZodValidation,
   userStatusZodValidation,
-} from "@/app/utils/zod/common-validations";
+} from "@/app/utils/common-zod-validations";
 import { DriverStatus, VehicleType } from "@/app/constants";
 
 export const vehicleInfoSchema = z.object({

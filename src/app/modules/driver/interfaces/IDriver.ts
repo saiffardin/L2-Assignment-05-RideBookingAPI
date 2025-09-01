@@ -1,13 +1,12 @@
-import { DriverStatus, UserStatus } from "@/app/constants";
-import { ILogin } from "@/app/interfaces/ILogin";
 import { Types } from "mongoose";
+import { DriverStatus, UserStatus } from "@/app/constants";
 
-export interface IDriver extends ILogin {
+export interface IDriver {
   _id?: Types.ObjectId;
 
   name: string;
-  // email: string;
-  // password: string;
+  email: string;
+  password: string;
   drivingLicense: string;
   vehicleInfo: IVehicleInfo;
 

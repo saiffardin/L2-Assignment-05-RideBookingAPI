@@ -7,7 +7,7 @@ import {
   phoneZodValidation,
   pictureZodValidation,
   userStatusZodValidation,
-} from "@/app/utils/zod/common-validations";
+} from "@/app/utils/common-zod-validations";
 import { TripStatus } from "@/app/constants";
 
 export const createRiderZodSchema = z.object({

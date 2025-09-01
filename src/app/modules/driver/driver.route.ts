@@ -1,11 +1,7 @@
 import { Router } from "express";
 import { DriverControllers } from "./controllers";
-import { createDriverZodSchema } from "./validations";
+import { createDriverZodSchema, loginDriverZodSchema } from "./validations";
 import { validateZodRequest } from "@/app/middlewares/validateZodRequest";
-import { loginZodSchema } from "@/app/utils/zod/loginZodSchema";
-import { LoginControllers } from "../login/login.controller";
-import { addUserRole } from "@/app/middlewares/addUserRole";
-import { Role } from "@/app/constants";
 
 export const DriverRoutes = Router();
 
@@ -17,9 +13,8 @@ DriverRoutes.post(
 
 DriverRoutes.post(
   "/login",
-  validateZodRequest(loginZodSchema),
-  addUserRole(Role.DRIVER),
-  LoginControllers.login
+  validateZodRequest(loginDriverZodSchema),
+  DriverControllers.loginDriver
 );
 
 // UserRoutes.get(
