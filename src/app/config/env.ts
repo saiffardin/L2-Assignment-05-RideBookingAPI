@@ -18,6 +18,8 @@ interface IEnvConfig {
   SUPER_ADMIN_EMAIL: string;
   SUPER_ADMIN_PASSWORD: string;
 
+  CANCEL_WINDOW_SECONDS: string;
+
   // GOOGLE_CLIENT_SECRET: string;
   // GOOGLE_CLIENT_ID: string;
   // GOOGLE_CALLBACK_URL: string;
@@ -40,6 +42,8 @@ const requiredEnvVars = [
 
   "SUPER_ADMIN_EMAIL",
   "SUPER_ADMIN_PASSWORD",
+
+  "CANCEL_WINDOW_SECONDS",
 
   // "GOOGLE_CLIENT_SECRET",
   // "GOOGLE_CLIENT_ID",

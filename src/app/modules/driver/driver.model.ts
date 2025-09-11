@@ -27,6 +27,10 @@ const driverSchema = new Schema<IDriver>(
     password: { type: String, required: true },
     drivingLicense: { type: String, required: true },
     vehicleInfo: vehicleInfoSchema,
+    earnings: {
+      totalIncome: { type: Number, default: 0 },
+      totalTrips: { type: Number, default: 0 },
+    },
     phone: { type: String },
     picture: { type: String },
     isDeleted: { type: Boolean, default: false },
@@ -36,7 +40,7 @@ const driverSchema = new Schema<IDriver>(
       default: UserStatus.ACTIVE,
     },
     isVerified: { type: Boolean, default: false },
-    tripStatus: {
+    status: {
       type: String,
       enum: Object.values(DriverStatus),
       default: DriverStatus.ONLINE,

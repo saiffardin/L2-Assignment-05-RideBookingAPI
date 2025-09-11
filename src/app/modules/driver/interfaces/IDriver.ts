@@ -9,13 +9,14 @@ export interface IDriver {
   password: string;
   drivingLicense: string;
   vehicleInfo: IVehicleInfo;
+  earnings: { totalIncome: number; totalTrips: number };
 
   phone?: string;
   picture?: string;
   isDeleted?: boolean;
   userStatus?: UserStatus;
   isVerified?: boolean;
-  tripStatus?: DriverStatus;
+  status?: DriverStatus;
 }
 
 export interface IVehicleInfo {
