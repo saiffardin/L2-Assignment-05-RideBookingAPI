@@ -6,3 +6,5 @@ export enum TripStatus {
   TRIP_COMPLETED = "TRIP_COMPLETED", // completed
   CANCELLED = "CANCELLED", // cancelled
 }
+
+export type TripTypes = (typeof TripStatus)[keyof typeof TripStatus];
