@@ -3,16 +3,19 @@ import { Schema, model } from "mongoose";
 import { ITrip } from "./trip.interface";
 import { LocationName } from "@/app/constants/enum.locations";
 
-const TripHistorySchema = new Schema({
-  status: { type: String, required: true },
-  timestamp: { type: Date, default: Date.now },
-  actorRole: {
-    type: String,
-    enum: Object.values(Role),
+const TripHistorySchema = new Schema(
+  {
+    status: { type: String, required: true },
+    timestamp: { type: Date, default: Date.now },
+    actorRole: {
+      type: String,
+      enum: Object.values(Role),
+    },
+    actorId: Schema.Types.ObjectId,
+    note: String,
   },
-  actorId: Schema.Types.ObjectId,
-  note: String,
-});
+  { _id: false }
+);
 
 const TripSchema = new Schema<ITrip>({
   riderId: {
@@ -21,6 +24,7 @@ const TripSchema = new Schema<ITrip>({
     required: true,
     index: true,
   },
+
   driverId: { type: Schema.Types.ObjectId, ref: "Driver", default: null },
 
   pickup: {
@@ -42,11 +46,11 @@ const TripSchema = new Schema<ITrip>({
   },
 
   fare: { type: Number, default: 0 },
-  requestedAt: { type: Date, default: Date.now },
+  requestedAt: { type: Date, default: Date.now }, // while trip request
   acceptedAt: Date,
   pickedUpAt: Date,
   completedAt: Date,
-  cancelledAt: Date,
+  cancelledAt: Date, // while trip cancelled
 
   history: { type: [TripHistorySchema], default: [] },
 });

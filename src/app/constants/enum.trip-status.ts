@@ -8,3 +8,15 @@ export enum TripStatus {
 }
 
 export type TripTypes = (typeof TripStatus)[keyof typeof TripStatus];
+
+export const allowedTransitions: Record<TripStatus, TripStatus[]> = {
+  [TripStatus.OFFLINE]: [TripStatus.SEARCHING_DRIVER],
+  [TripStatus.SEARCHING_DRIVER]: [
+    TripStatus.DRIVER_ASSIGNED,
+    TripStatus.CANCELLED,
+  ],
+  [TripStatus.DRIVER_ASSIGNED]: [TripStatus.TRIP_STARTED, TripStatus.CANCELLED],
+  [TripStatus.TRIP_STARTED]: [TripStatus.TRIP_COMPLETED, TripStatus.CANCELLED],
+  [TripStatus.TRIP_COMPLETED]: [],
+  [TripStatus.CANCELLED]: [],
+};

@@ -13,6 +13,7 @@ const LocationSchema = new Schema<ILocation>({
   description: { type: String, default: "" },
   fares: [
     {
+      _id: false,
       destination: {
         type: String,
         enum: Object.values(LocationName),
