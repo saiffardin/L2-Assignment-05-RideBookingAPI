@@ -20,9 +20,15 @@ TripRoutes.post(
  * not checked with driver, admin, super-admin
  */
 TripRoutes.post(
-  "/cancel/:tripId",
+  "/:tripId/cancel",
   checkAuth(Role.RIDER, Role.DRIVER, Role.ADMIN, Role.SUPER_ADMIN),
   TripControllers.cancelTrip
 );
 
 TripRoutes.get("/history", checkAuth(Role.RIDER), TripControllers.riderHistory);
+
+TripRoutes.post(
+  "/:tripId/accept",
+  checkAuth(Role.DRIVER),
+  TripControllers.acceptTrip
+);
