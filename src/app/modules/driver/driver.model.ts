@@ -1,6 +1,6 @@
 import { model, Schema } from "mongoose";
 import { IDriver, IVehicleInfo } from "./interfaces/IDriver";
-import { DriverStatus, UserStatus, VehicleType } from "@/app/constants";
+import { UserStatus, UserAccount, VehicleType } from "@/app/constants";
 
 const vehicleInfoSchema = new Schema<IVehicleInfo>(
   {
@@ -34,16 +34,16 @@ const driverSchema = new Schema<IDriver>(
     phone: { type: String },
     picture: { type: String },
     isDeleted: { type: Boolean, default: false },
-    userStatus: {
+    accountStatus: {
       type: String,
-      enum: Object.values(UserStatus),
-      default: UserStatus.ACTIVE,
+      enum: Object.values(UserAccount),
+      default: UserAccount.ACTIVE,
     },
     isVerified: { type: Boolean, default: false },
     status: {
       type: String,
-      enum: Object.values(DriverStatus),
-      default: DriverStatus.ONLINE,
+      enum: Object.values(UserStatus),
+      default: UserStatus.ONLINE,
     },
   },
   {

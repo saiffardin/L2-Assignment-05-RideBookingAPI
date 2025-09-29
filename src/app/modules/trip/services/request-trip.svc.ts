@@ -1,7 +1,7 @@
 import { Trip } from "../trip.model";
 import { Rider } from "../../rider/rider.model";
 import httpStatusCodes from "http-status-codes";
-import { Role, TripStatus } from "@/app/constants";
+import { Role, TripStatus, UserStatus } from "@/app/constants";
 import AppError from "@/app/error-helpers/AppError";
 import { IRider } from "../../rider/interfaces/IRider";
 import { LocationNameType } from "@/app/constants/enum.locations";
@@ -38,25 +38,20 @@ export const requestTrip = async (
     ],
   });
 
-  rider.tripStatus = TripStatus.SEARCHING_DRIVER;
+  rider.status = UserStatus.ON_TRIP;
   await rider.save();
 
   return trip;
 };
 
 const validateRiderTripRequest = (rider: IRider) => {
-  const currStage = rider?.tripStatus;
+  if (!rider?.status || rider?.status === UserStatus.OFFLINE) {
+    const msg = `Rider status invalid (${rider?.status}).`;
+    throw new AppError(httpStatusCodes.BAD_REQUEST, msg);
+  }
 
-  const validStages = [
-    TripStatus.OFFLINE,
-    TripStatus.TRIP_COMPLETED,
-    TripStatus.CANCELLED,
-  ];
-
-  const canRiderRequestTrip = currStage && validStages.includes(currStage);
-
-  if (!canRiderRequestTrip) {
-    const msg = "A rider can request only one trip at a time";
+  if (rider?.status === UserStatus.ON_TRIP) {
+    const msg = "A rider can request only one trip at a time.";
     throw new AppError(httpStatusCodes.BAD_REQUEST, msg);
   }
 };

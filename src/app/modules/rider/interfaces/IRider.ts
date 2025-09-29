@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import { TripStatus, UserStatus } from "@/app/constants";
+import {  UserAccount, UserStatus } from "@/app/constants";
 
 export interface IRider {
   _id?: Types.ObjectId;
@@ -9,7 +9,7 @@ export interface IRider {
   phone?: string;
   picture?: string;
   isDeleted?: boolean;
-  userStatus?: UserStatus; // previously "IsActive"
+  accountStatus?: UserAccount; // previously "IsActive"
   isVerified?: boolean;
-  tripStatus?: TripStatus;
+  status?: UserStatus;
 }

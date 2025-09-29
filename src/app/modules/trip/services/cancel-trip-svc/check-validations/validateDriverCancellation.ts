@@ -1,4 +1,4 @@
-import { ITrip } from "../../trip.interface";
+import { ITrip } from "../../../trip.interface";
 import { TripStatus } from "@/app/constants";
 import httpStatusCodes from "http-status-codes";
 import AppError from "@/app/error-helpers/AppError";

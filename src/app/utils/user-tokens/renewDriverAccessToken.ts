@@ -1,17 +1,23 @@
 import { envVars } from "@/app/config";
 import httpStatus from "http-status-codes";
 import { CustomJwtPayload } from "../jwt/types";
-import { Role, UserStatus } from "@/app/constants";
+import { Role, UserAccount } from "@/app/constants";
 import { generateToken, verifyToken } from "../jwt";
 import AppError from "@/app/error-helpers/AppError";
 import { Driver } from "@/app/modules/driver/driver.model";
 import { IDriver } from "@/app/modules/driver/interfaces/IDriver";
 
 const validateDriverForTokenRenewal = async (user: IDriver) => {
-  const { userStatus, isDeleted } = user;
+  const { accountStatus, isDeleted } = user;
 
-  if (userStatus === UserStatus.BLOCKED || userStatus === UserStatus.INACTIVE) {
-    throw new AppError(httpStatus.BAD_REQUEST, `Driver is ${userStatus}.`);
+  if (
+    accountStatus === UserAccount.BLOCKED ||
+    accountStatus === UserAccount.INACTIVE
+  ) {
+    throw new AppError(
+      httpStatus.BAD_REQUEST,
+      `Driver account is ${accountStatus}.`
+    );
   }
 
   if (isDeleted) {

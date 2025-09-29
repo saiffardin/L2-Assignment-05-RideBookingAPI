@@ -6,9 +6,9 @@ import {
   passwordZodValidation,
   phoneZodValidation,
   pictureZodValidation,
-  userStatusZodValidation,
+  userAccountZodValidation,
 } from "@/app/utils/common-zod-validations";
-import { TripStatus } from "@/app/constants";
+import { UserStatus } from "@/app/constants";
 
 export const createRiderZodSchema = z.object({
   name: nameZodValidation,
@@ -18,10 +18,10 @@ export const createRiderZodSchema = z.object({
   phone: phoneZodValidation,
   picture: pictureZodValidation,
   isDeleted: isDeletedZodValidation,
-  userStatus: userStatusZodValidation,
+  accountStatus: userAccountZodValidation,
 
   isVerified: z.boolean().default(false),
-  tripStatus: z.nativeEnum(TripStatus).default(TripStatus.OFFLINE),
+  status: z.nativeEnum(UserStatus).default(UserStatus.OFFLINE),
 });
 
 export type CreateRiderZodSchemaType = z.infer<typeof createRiderZodSchema>;

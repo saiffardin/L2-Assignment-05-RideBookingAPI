@@ -6,9 +6,9 @@ import {
   passwordZodValidation,
   phoneZodValidation,
   pictureZodValidation,
-  userStatusZodValidation,
+  userAccountZodValidation,
 } from "@/app/utils/common-zod-validations";
-import { DriverStatus, VehicleType } from "@/app/constants";
+import { UserStatus, VehicleType } from "@/app/constants";
 
 export const vehicleInfoSchema = z.object({
   type: z.nativeEnum(VehicleType),
@@ -27,7 +27,7 @@ export const createDriverZodSchema = z.object({
   phone: phoneZodValidation,
   picture: pictureZodValidation,
   isDeleted: isDeletedZodValidation,
-  userStatus: userStatusZodValidation,
+  accountStatus: userAccountZodValidation,
 
   drivingLicense: z
     .string()
@@ -39,7 +39,7 @@ export const createDriverZodSchema = z.object({
   vehicleInfo: vehicleInfoSchema,
 
   isVerified: z.boolean().default(false),
-  tripStatus: z.nativeEnum(DriverStatus).default(DriverStatus.ONLINE),
+  status: z.nativeEnum(UserStatus).default(UserStatus.ONLINE),
 });
 
 export type CreateDriverZodSchemaType = z.infer<typeof createDriverZodSchema>;

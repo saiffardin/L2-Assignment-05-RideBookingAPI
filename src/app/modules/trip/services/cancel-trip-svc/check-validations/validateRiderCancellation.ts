@@ -1,7 +1,7 @@
-import { ITrip } from "../../trip.interface";
 import { TripStatus } from "@/app/constants";
 import httpStatusCodes from "http-status-codes";
 import AppError from "@/app/error-helpers/AppError";
+import { ITrip } from "../../../trip.interface";
 
 const CANCEL_WINDOW_SECONDS = parseInt(
   process.env.CANCEL_WINDOW_SECONDS || "60",

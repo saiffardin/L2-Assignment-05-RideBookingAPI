@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import { DriverStatus, UserStatus } from "@/app/constants";
+import { UserStatus, UserAccount } from "@/app/constants";
 
 export interface IDriver {
   _id?: Types.ObjectId;
@@ -14,9 +14,9 @@ export interface IDriver {
   phone?: string;
   picture?: string;
   isDeleted?: boolean;
-  userStatus?: UserStatus;
+  accountStatus?: UserAccount;
   isVerified?: boolean;
-  status?: DriverStatus;
+  status?: UserStatus;
 }
 
 export interface IVehicleInfo {

@@ -4,7 +4,7 @@ import { Rider } from "../rider.model";
 import { IRider } from "../interfaces/IRider";
 import httpStatusCodes from "http-status-codes";
 import AppError from "@/app/error-helpers/AppError";
-import { TripStatus, UserStatus } from "@/app/constants";
+import { UserStatus, UserAccount } from "@/app/constants";
 
 export const createRider = async (payload: Partial<IRider>) => {
   const { email, password, ...rest } = payload;
@@ -25,9 +25,9 @@ export const createRider = async (payload: Partial<IRider>) => {
     password: hashedPassword,
     ...rest,
     isDeleted: false,
-    userStatus: UserStatus.ACTIVE,
+    accountStatus: UserAccount.ACTIVE,
     isVerified: false,
-    tripStatus: TripStatus.OFFLINE,
+    status: UserStatus.OFFLINE,
   });
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { UserStatus } from "@/app/constants";
+import { UserAccount } from "@/app/constants";
 
 export const nameZodValidation = z
   .string({ invalid_type_error: "Name must be string." })
@@ -37,6 +37,6 @@ export const pictureZodValidation = z.string().url("Invalid URL").optional();
 
 export const isDeletedZodValidation = z.boolean().default(false);
 
-export const userStatusZodValidation = z
-  .nativeEnum(UserStatus)
-  .default(UserStatus.ACTIVE);
+export const userAccountZodValidation = z
+  .nativeEnum(UserAccount)
+  .default(UserAccount.ACTIVE);

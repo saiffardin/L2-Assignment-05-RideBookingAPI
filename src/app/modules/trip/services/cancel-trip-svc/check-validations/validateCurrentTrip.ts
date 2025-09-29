@@ -1,7 +1,7 @@
 import { TripStatus } from "@/app/constants";
-import { ITrip } from "../../trip.interface";
 import httpStatusCodes from "http-status-codes";
 import AppError from "@/app/error-helpers/AppError";
+import { ITrip } from "../../../trip.interface";
 
 export const validateCurrentTrip = (trip: ITrip) => {
   const invalidStages = [

@@ -3,11 +3,9 @@ import { Trip } from "../../trip.model";
 import httpStatusCodes from "http-status-codes";
 import AppError from "@/app/error-helpers/AppError";
 import { Role, RoleType, TripStatus } from "@/app/constants";
-import { validateCurrentTrip } from "./validateCurrentTrip";
-import { validateRiderCancellation } from "./validateRiderCancellation";
-import { validateDriverCancellation } from "./validateDriverCancellation";
 import { updateRiderTripStatus } from "./updateRiderTripStatus";
 import { updateDriverTripStatus } from "./updateDriverTripStatus";
+import { checkValidations } from "./check-validations";
 
 interface Props {
   tripId: string;
@@ -23,29 +21,26 @@ interface Props {
 export const cancelTrip = async (values: Props) => {
   const { tripId, actorRole, actorId } = values;
 
+  const isReqFromRider = actorRole === Role.RIDER;
+  const isReqFromDriver = actorRole === Role.DRIVER;
+  const isReqFromAdmins =
+    actorRole === Role.ADMIN || actorRole === Role.SUPER_ADMIN;
+
   const trip = await Trip.findById(tripId);
 
   if (!trip) {
     throw new AppError(httpStatusCodes.NOT_FOUND, "Trip not found.");
   }
 
-  validateCurrentTrip(trip);
+  checkValidations({
+    trip,
+    actorId,
+    isReqFromRider,
+    isReqFromDriver,
+    isReqFromAdmins,
+  });
 
-  const isReqFromRider = actorRole === Role.RIDER;
-  const isReqFromDriver = actorRole === Role.DRIVER;
-  const isReqFromAdmins =
-    actorRole === Role.ADMIN || actorRole === Role.SUPER_ADMIN;
-
-  if (isReqFromRider) {
-    validateRiderCancellation(trip, actorId);
-  } else if (isReqFromDriver) {
-    validateDriverCancellation(trip, actorId);
-  } else if (isReqFromAdmins) {
-    const msg = "Admins can not cancel a trip.";
-    throw new AppError(httpStatusCodes.BAD_REQUEST, msg);
-  }
-
-  await updateRiderTripStatus(trip, actorRole);
+  await updateRiderTripStatus(trip, isReqFromRider);
   await updateDriverTripStatus(trip.driverId);
 
   if (isReqFromRider) {

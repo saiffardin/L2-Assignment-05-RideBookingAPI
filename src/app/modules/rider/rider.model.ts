@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 import { IRider } from "./interfaces/IRider";
-import { TripStatus, UserStatus } from "@/app/constants";
+import { UserStatus, UserAccount } from "@/app/constants";
 
 const RiderSchema = new Schema<IRider>(
   {
@@ -11,16 +11,16 @@ const RiderSchema = new Schema<IRider>(
     phone: { type: String },
     picture: { type: String },
     isDeleted: { type: Boolean, default: false },
-    userStatus: {
+    accountStatus: {
       type: String,
-      enum: Object.values(UserStatus),
-      default: UserStatus.ACTIVE,
+      enum: Object.values(UserAccount),
+      default: UserAccount.ACTIVE,
     },
     isVerified: { type: Boolean, default: false },
-    tripStatus: {
+    status: {
       type: String,
-      enum: Object.values(TripStatus),
-      default: TripStatus.OFFLINE,
+      enum: Object.values(UserStatus),
+      default: UserStatus.OFFLINE,
     },
   },
   { timestamps: true }

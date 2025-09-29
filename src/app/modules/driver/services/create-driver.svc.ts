@@ -4,7 +4,7 @@ import { Driver } from "../driver.model";
 import { IDriver } from "../interfaces/IDriver";
 import bcryptjs from "bcryptjs";
 import { envVars } from "@/app/config";
-import { DriverStatus, UserStatus } from "@/app/constants";
+import { UserStatus, UserAccount } from "@/app/constants";
 
 export const createDriver = async (payload: Partial<IDriver>) => {
   const { email, password, ...rest } = payload;
@@ -30,9 +30,9 @@ export const createDriver = async (payload: Partial<IDriver>) => {
     password: hashedPassword,
     ...rest,
     isDeleted: false,
-    userStatus: UserStatus.ACTIVE,
+    accountStatus: UserAccount.ACTIVE,
     isVerified: false,
-    tripStatus: DriverStatus.ONLINE,
+    status: UserStatus.ONLINE,
   });
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
