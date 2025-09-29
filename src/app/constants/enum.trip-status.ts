@@ -16,7 +16,7 @@ export const allowedTransitions: Record<TripStatus, TripStatus[]> = {
     TripStatus.CANCELLED,
   ],
   [TripStatus.DRIVER_ASSIGNED]: [TripStatus.TRIP_STARTED, TripStatus.CANCELLED],
-  [TripStatus.TRIP_STARTED]: [TripStatus.TRIP_COMPLETED, TripStatus.CANCELLED],
+  [TripStatus.TRIP_STARTED]: [TripStatus.TRIP_COMPLETED],
   [TripStatus.TRIP_COMPLETED]: [],
   [TripStatus.CANCELLED]: [],
 };

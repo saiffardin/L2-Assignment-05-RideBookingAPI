@@ -22,6 +22,12 @@ TripRoutes.get(
 );
 
 TripRoutes.post(
+  "/:tripId/start",
+  checkAuth(Role.DRIVER),
+  TripControllers.tripStart
+);
+
+TripRoutes.post(
   "/:tripId/cancel",
   checkAuth(Role.RIDER, Role.DRIVER, Role.ADMIN, Role.SUPER_ADMIN),
   TripControllers.cancelTrip

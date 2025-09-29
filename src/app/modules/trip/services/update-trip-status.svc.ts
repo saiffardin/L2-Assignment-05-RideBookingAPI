@@ -27,10 +27,15 @@ export const updateTripStatus = async (values: Props) => {
     throw new AppError(httpStatusCodes.NOT_FOUND, "Trip not found.");
   }
 
+  if (trip.driverId?.toString() !== actorId) {
+    const msg = `The driver is not assigned to this trip.`;
+    throw new AppError(httpStatusCodes.BAD_REQUEST, msg);
+  }
+
   const allowed = allowedTransitions[trip.status] || [];
 
   if (!allowed.includes(newStatus)) {
-    const msg = `Invalid status transition from ${trip.status} to ${newStatus}`;
+    const msg = `Invalid status transition from ${trip.status} to ${newStatus}.`;
     throw new AppError(httpStatusCodes.BAD_REQUEST, msg);
   }
 
