@@ -11,6 +11,11 @@ export const acceptTrip = async (tripId: string, driverId: string) => {
     throw new AppError(httpStatusCodes.NOT_FOUND, "Trip not found.");
   }
 
+  if (trip.driverId) {
+    const msg = "Driver has already been assigned to this trip.";
+    throw new AppError(httpStatusCodes.BAD_REQUEST, msg);
+  }
+
   if (trip.status !== TripStatus.SEARCHING_DRIVER) {
     const msg = "Cannot accept non-requested trip.";
     throw new AppError(httpStatusCodes.BAD_REQUEST, msg);

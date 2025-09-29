@@ -27,7 +27,7 @@ export const createRider = async (payload: Partial<IRider>) => {
     isDeleted: false,
     accountStatus: UserAccount.ACTIVE,
     isVerified: false,
-    status: UserStatus.OFFLINE,
+    status: UserStatus.ONLINE,
   });
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

@@ -15,10 +15,12 @@ TripRoutes.post(
   TripControllers.requestTrip
 );
 
-/**
- * checked with rider only
- * not checked with driver, admin, super-admin
- */
+TripRoutes.get(
+  "/available",
+  checkAuth(Role.DRIVER),
+  TripControllers.availableTripList
+);
+
 TripRoutes.post(
   "/:tripId/cancel",
   checkAuth(Role.RIDER, Role.DRIVER, Role.ADMIN, Role.SUPER_ADMIN),
