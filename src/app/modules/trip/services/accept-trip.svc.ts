@@ -18,7 +18,7 @@ export const acceptTrip = async (tripId: string, driverId: string) => {
     throw new AppError(httpStatusCodes.BAD_REQUEST, msg);
   }
 
-  const driver = await getValidDriver(driverId);
+  const driver = await validateAndUpdateDriver(driverId);
 
   await updateRiderTripStatus(trip);
 
@@ -38,7 +38,7 @@ export const acceptTrip = async (tripId: string, driverId: string) => {
   return trip;
 };
 
-const getValidDriver = async (driverId: string) => {
+const validateAndUpdateDriver = async (driverId: string) => {
   const driver = await Driver.findById(driverId);
 
   if (!driver) {

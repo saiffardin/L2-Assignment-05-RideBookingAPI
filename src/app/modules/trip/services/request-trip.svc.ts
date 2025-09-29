@@ -56,7 +56,7 @@ const validateRiderTripRequest = (rider: IRider) => {
   const canRiderRequestTrip = currStage && validStages.includes(currStage);
 
   if (!canRiderRequestTrip) {
-    const msg = "A rider cannot request more than one ride at the same time.";
+    const msg = "A rider can request only one trip at a time";
     throw new AppError(httpStatusCodes.BAD_REQUEST, msg);
   }
 };
