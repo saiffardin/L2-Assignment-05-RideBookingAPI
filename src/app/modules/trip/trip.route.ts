@@ -21,6 +21,8 @@ TripRoutes.get(
   TripControllers.availableTripList
 );
 
+TripRoutes.get("/history", checkAuth(Role.RIDER), TripControllers.riderHistory);
+
 TripRoutes.post(
   "/:tripId/start",
   checkAuth(Role.DRIVER),
@@ -29,14 +31,18 @@ TripRoutes.post(
 
 TripRoutes.post(
   "/:tripId/cancel",
-  checkAuth(Role.RIDER, Role.DRIVER, Role.ADMIN, Role.SUPER_ADMIN),
+  checkAuth(Role.RIDER, Role.DRIVER),
   TripControllers.cancelTrip
 );
-
-TripRoutes.get("/history", checkAuth(Role.RIDER), TripControllers.riderHistory);
 
 TripRoutes.post(
   "/:tripId/accept",
   checkAuth(Role.DRIVER),
   TripControllers.acceptTrip
+);
+
+TripRoutes.post(
+  "/:tripId/complete",
+  checkAuth(Role.DRIVER),
+  TripControllers.tripComplete
 );

@@ -12,7 +12,7 @@ export const acceptTrip = async (tripId: string, driverId: string) => {
   }
 
   if (trip.driverId) {
-    const msg = "Driver has already been assigned to this trip.";
+    const msg = "A driver has already been assigned to this trip.";
     throw new AppError(httpStatusCodes.BAD_REQUEST, msg);
   }
 

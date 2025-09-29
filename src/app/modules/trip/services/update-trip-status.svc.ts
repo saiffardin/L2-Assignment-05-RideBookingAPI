@@ -3,13 +3,15 @@ import {
   RoleType,
   TripStatus,
   TripTypes,
+  UserStatus,
 } from "@/app/constants";
 import { Trip } from "../trip.model";
 import AppError from "@/app/error-helpers/AppError";
 import httpStatusCodes from "http-status-codes";
 import { Driver } from "../../driver/driver.model";
 import { Types } from "mongoose";
-import { LocationServices } from "../../location/location.service";
+import { ITrip } from "../trip.interface";
+import { Rider } from "../../rider/rider.model";
 
 interface Props {
   tripId: string;
@@ -28,7 +30,7 @@ export const updateTripStatus = async (values: Props) => {
   }
 
   if (trip.driverId?.toString() !== actorId) {
-    const msg = `The driver is not assigned to this trip.`;
+    const msg = `Another driver is assigned to this trip.`;
     throw new AppError(httpStatusCodes.BAD_REQUEST, msg);
   }
 
@@ -48,20 +50,8 @@ export const updateTripStatus = async (values: Props) => {
 
   if (newStatus === TripStatus.TRIP_COMPLETED) {
     trip.completedAt = now;
-
-    if (trip.driverId) {
-      const driver = await Driver.findById(trip.driverId);
-      if (driver) {
-        // calculate-fare should be called when we're creating the trip
-        const fare =
-          trip.fare ||
-          (await LocationServices.calculateFare(trip.pickup, trip.destination));
-
-        driver.earnings.totalIncome += fare;
-        driver.earnings.totalTrips += 1;
-        await driver.save();
-      }
-    }
+    await updateDriverEarnings(trip);
+    await updateRiderStatus(trip);
   }
 
   trip.history.push({
@@ -73,4 +63,29 @@ export const updateTripStatus = async (values: Props) => {
 
   await trip.save();
   return trip;
+};
+
+const updateDriverEarnings = async (trip: ITrip) => {
+  const driver = await Driver.findById(trip.driverId);
+
+  if (!driver) {
+    const msg = "Data corrupt. Driver not found.";
+    throw new AppError(httpStatusCodes.NOT_FOUND, msg);
+  }
+
+  if (!trip.fare) {
+    const msg = "Data corrupt. Trip fare not found.";
+    throw new AppError(httpStatusCodes.NOT_FOUND, msg);
+  }
+
+  driver.status = UserStatus.ONLINE;
+  driver.earnings.totalIncome += trip.fare;
+  driver.earnings.totalTrips += 1;
+  await driver.save();
+};
+
+const updateRiderStatus = async (trip: ITrip) => {
+  await Rider.findByIdAndUpdate(trip.riderId, {
+    $set: { status: UserStatus.ONLINE },
+  });
 };

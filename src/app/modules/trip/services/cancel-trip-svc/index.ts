@@ -23,8 +23,6 @@ export const cancelTrip = async (values: Props) => {
 
   const isReqFromRider = actorRole === Role.RIDER;
   const isReqFromDriver = actorRole === Role.DRIVER;
-  const isReqFromAdmins =
-    actorRole === Role.ADMIN || actorRole === Role.SUPER_ADMIN;
 
   const trip = await Trip.findById(tripId);
 
@@ -37,7 +35,6 @@ export const cancelTrip = async (values: Props) => {
     actorId,
     isReqFromRider,
     isReqFromDriver,
-    isReqFromAdmins,
   });
 
   await updateRiderTripStatus(trip, isReqFromRider);

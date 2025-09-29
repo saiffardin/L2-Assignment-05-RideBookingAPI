@@ -21,7 +21,7 @@ export const tripStart = catchAsync(
 
     sendResponse(res, {
       success: true,
-      statusCode: httpStatusCodes.CREATED,
+      statusCode: httpStatusCodes.OK,
       message: "Trip Started Successfully.",
       data: updatedTrip,
     });
