@@ -23,6 +23,12 @@ TripRoutes.get(
 
 TripRoutes.get("/history", checkAuth(Role.RIDER), TripControllers.riderHistory);
 
+TripRoutes.get(
+  "/earnings/history",
+  checkAuth(Role.DRIVER),
+  TripControllers.earningsHistory
+);
+
 TripRoutes.post(
   "/:tripId/start",
   checkAuth(Role.DRIVER),
