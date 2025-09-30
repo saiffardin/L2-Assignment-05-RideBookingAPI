@@ -1,4 +1,4 @@
-import { Trip } from "../trip.model";
+import { Trip } from "../../trip/trip.model";
 import { TripStatus } from "@/app/constants";
 
 export const earningsHistory = async (driverId: string) => {

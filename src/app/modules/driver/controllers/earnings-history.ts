@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { TripServices } from "../services";
 import httpStatusCodes from "http-status-codes";
 import { catchAsync } from "@/app/utils/catchAsync";
 import { sendResponse } from "@/app/utils/sendResponse";
 import { type Response, type Request, type NextFunction } from "express";
+import { DriverServices } from "../services";
 
 export const earningsHistory = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const driverId = req.user.userId as string;
-    const earnings = await TripServices.earningsHistory(driverId);
+    const earnings = await DriverServices.earningsHistory(driverId);
 
     sendResponse(res, {
       success: true,

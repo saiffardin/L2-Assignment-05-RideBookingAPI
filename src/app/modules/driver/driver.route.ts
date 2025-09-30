@@ -29,3 +29,9 @@ DriverRoutes.post(
   validateZodRequest(setAvailabilityZodSchema),
   DriverControllers.setAvailability
 );
+
+DriverRoutes.get(
+  "/earnings/history",
+  checkAuth(Role.DRIVER),
+  DriverControllers.earningsHistory
+);
