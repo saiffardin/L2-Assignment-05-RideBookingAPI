@@ -17,7 +17,6 @@ const app_1 = __importDefault(require("./app"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const config_1 = require("./app/config");
 const seedSuperAdmin_1 = require("./app/utils/seedSuperAdmin");
-const seedLocations_1 = require("./app/utils/seedLocations");
 let server;
 function bootstrap() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -39,7 +38,6 @@ function bootstrap() {
 (() => __awaiter(void 0, void 0, void 0, function* () {
     yield bootstrap();
     yield (0, seedSuperAdmin_1.seedSuperAdmin)();
-    yield (0, seedLocations_1.seedLocations)();
 }))();
 process.on("unhandledRejection", (reason, promise) => {
     console.error(":::::::Unhandled Rejection at:", promise, "reason:", reason);

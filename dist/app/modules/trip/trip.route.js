@@ -10,8 +10,6 @@ const constants_1 = require("@/app/constants");
 exports.TripRoutes = (0, express_1.Router)();
 exports.TripRoutes.post("/request", (0, checkAuth_1.checkAuth)(constants_1.Role.RIDER), (0, validateZodRequest_1.validateZodRequest)(validations_1.tripRequestZodSchema), controllers_1.TripControllers.requestTrip);
 exports.TripRoutes.get("/available", (0, checkAuth_1.checkAuth)(constants_1.Role.DRIVER), controllers_1.TripControllers.availableTripList);
-exports.TripRoutes.get("/history", (0, checkAuth_1.checkAuth)(constants_1.Role.RIDER), controllers_1.TripControllers.riderHistory);
-exports.TripRoutes.get("/earnings/history", (0, checkAuth_1.checkAuth)(constants_1.Role.DRIVER), controllers_1.TripControllers.earningsHistory);
 exports.TripRoutes.post("/:tripId/start", (0, checkAuth_1.checkAuth)(constants_1.Role.DRIVER), controllers_1.TripControllers.tripStart);
 exports.TripRoutes.post("/:tripId/cancel", (0, checkAuth_1.checkAuth)(constants_1.Role.RIDER, constants_1.Role.DRIVER), controllers_1.TripControllers.cancelTrip);
 exports.TripRoutes.post("/:tripId/accept", (0, checkAuth_1.checkAuth)(constants_1.Role.DRIVER), controllers_1.TripControllers.acceptTrip);

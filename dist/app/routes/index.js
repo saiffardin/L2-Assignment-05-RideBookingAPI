@@ -6,6 +6,7 @@ const driver_route_1 = require("../modules/driver/driver.route");
 const rider_route_1 = require("../modules/rider/rider.route");
 const admin_route_1 = require("../modules/admin/admin.route");
 const trip_route_1 = require("../modules/trip/trip.route");
+const location_route_1 = require("../modules/location/location.route");
 exports.router = (0, express_1.Router)();
 const moduleRoutes = [
     {
@@ -23,6 +24,10 @@ const moduleRoutes = [
     {
         path: "/trip",
         route: trip_route_1.TripRoutes,
+    },
+    {
+        path: "/location",
+        route: location_route_1.LocationRoutes,
     },
 ];
 moduleRoutes.forEach((element) => {

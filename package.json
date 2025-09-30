@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only -r tsconfig-paths/register src/server.ts",
     "build": "tsc",
-    "lint": "yarn eslint ./src"
+    "lint": "yarn eslint ./src",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",

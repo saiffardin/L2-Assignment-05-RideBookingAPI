@@ -11,3 +11,4 @@ exports.DriverRoutes = (0, express_1.Router)();
 exports.DriverRoutes.post("/register", (0, validateZodRequest_1.validateZodRequest)(validations_1.createDriverZodSchema), controllers_1.DriverControllers.createDriver);
 exports.DriverRoutes.post("/login", (0, validateZodRequest_1.validateZodRequest)(validations_1.loginDriverZodSchema), controllers_1.DriverControllers.loginDriver);
 exports.DriverRoutes.post("/availability", (0, checkAuth_1.checkAuth)(constants_1.Role.DRIVER), (0, validateZodRequest_1.validateZodRequest)(validations_1.setAvailabilityZodSchema), controllers_1.DriverControllers.setAvailability);
+exports.DriverRoutes.get("/earnings/history", (0, checkAuth_1.checkAuth)(constants_1.Role.DRIVER), controllers_1.DriverControllers.earningsHistory);

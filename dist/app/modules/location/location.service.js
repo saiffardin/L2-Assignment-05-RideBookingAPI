@@ -16,6 +16,7 @@ exports.LocationServices = void 0;
 const location_model_1 = require("./location.model");
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const AppError_1 = __importDefault(require("@/app/error-helpers/AppError"));
+const location_data_1 = require("./location.data");
 const calculateFare = (pickUp, dest) => __awaiter(void 0, void 0, void 0, function* () {
     var _a, _b, _c;
     const locArr = yield location_model_1.Location.find({ name: pickUp });
@@ -26,6 +27,18 @@ const calculateFare = (pickUp, dest) => __awaiter(void 0, void 0, void 0, functi
     const destDB = (_b = (_a = locArr === null || locArr === void 0 ? void 0 : locArr[0]) === null || _a === void 0 ? void 0 : _a.fares) === null || _b === void 0 ? void 0 : _b.find((item) => (item === null || item === void 0 ? void 0 : item.destination) === dest);
     return (_c = destDB === null || destDB === void 0 ? void 0 : destDB.fare) !== null && _c !== void 0 ? _c : 0;
 });
+const seedLocations = () => __awaiter(void 0, void 0, void 0, function* () {
+    yield location_model_1.Location.deleteMany({});
+    // eslint-disable-next-line no-console
+    console.log("==================");
+    // eslint-disable-next-line no-console
+    console.log("Cleared old locations.");
+    const locs = yield location_model_1.Location.insertMany(location_data_1.locationsData);
+    // eslint-disable-next-line no-console
+    console.log("Seeded locations successfully. 🚀");
+    return locs;
+});
 exports.LocationServices = {
     calculateFare,
+    seedLocations,
 };
