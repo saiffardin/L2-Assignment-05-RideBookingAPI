@@ -1,9 +1,9 @@
 import { Router } from "express";
 import { RiderControllers } from "./controllers";
 import { createRiderZodSchema, loginRiderZodSchema } from "./validations";
-import { validateZodRequest } from "@/app/middlewares/validateZodRequest";
-import { checkAuth } from "@/app/middlewares/checkAuth";
-import { Role } from "@/app/constants";
+import { validateZodRequest } from "../../middlewares/validateZodRequest";
+import { checkAuth } from "../../middlewares/checkAuth";
+import { Role } from "../../constants";
 
 export const RiderRoutes = Router();
 

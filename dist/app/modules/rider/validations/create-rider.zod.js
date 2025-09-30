@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createRiderZodSchema = void 0;
 const zod_1 = require("zod");
-const common_zod_validations_1 = require("@/app/utils/common-zod-validations");
-const constants_1 = require("@/app/constants");
+const common_zod_validations_1 = require("../../../utils/common-zod-validations");
+const constants_1 = require("../../../constants");
 exports.createRiderZodSchema = zod_1.z.object({
     name: common_zod_validations_1.nameZodValidation,
     email: common_zod_validations_1.emailZodValidation,

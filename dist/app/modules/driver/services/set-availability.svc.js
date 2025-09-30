@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setAvailability = void 0;
 const driver_model_1 = require("../driver.model");
-const AppError_1 = __importDefault(require("@/app/error-helpers/AppError"));
+const AppError_1 = __importDefault(require("../../../error-helpers/AppError"));
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const setAvailability = (driverId, status) => __awaiter(void 0, void 0, void 0, function* () {
     const driver = yield driver_model_1.Driver.findByIdAndUpdate(driverId, { status }, { new: true });

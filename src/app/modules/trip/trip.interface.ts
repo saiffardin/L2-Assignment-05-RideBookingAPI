@@ -1,5 +1,5 @@
-import { RoleType, TripTypes } from "@/app/constants";
-import { LocationNameType } from "@/app/constants/enum.locations";
+import { RoleType, TripTypes } from "../../constants";
+import { LocationNameType } from "../../constants/enum.locations";
 import { Types } from "mongoose";
 
 export interface ITripHistory {

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Driver = void 0;
 const mongoose_1 = require("mongoose");
-const constants_1 = require("@/app/constants");
+const constants_1 = require("../../constants");
 const vehicleInfoSchema = new mongoose_1.Schema({
     type: {
         type: String,

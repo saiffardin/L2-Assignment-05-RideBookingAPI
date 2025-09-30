@@ -4,9 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.validateCurrentTrip = void 0;
-const constants_1 = require("@/app/constants");
+const constants_1 = require("../../../../../constants");
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
-const AppError_1 = __importDefault(require("@/app/error-helpers/AppError"));
+const AppError_1 = __importDefault(require("../../../../../error-helpers/AppError"));
 const validateCurrentTrip = (trip) => {
     const invalidStages = [
         constants_1.TripStatus.OFFLINE,

@@ -1,4 +1,4 @@
-import { Role } from "@/app/constants";
+import { Role } from "../../constants";
 import { Types } from "mongoose";
 
 export interface IAdmin {

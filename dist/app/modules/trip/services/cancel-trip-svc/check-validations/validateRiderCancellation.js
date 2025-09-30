@@ -4,9 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.validateRiderCancellation = void 0;
-const constants_1 = require("@/app/constants");
+const constants_1 = require("../../../../../constants");
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
-const AppError_1 = __importDefault(require("@/app/error-helpers/AppError"));
+const AppError_1 = __importDefault(require("../../../../../error-helpers/AppError"));
 const CANCEL_WINDOW_SECONDS = parseInt(process.env.CANCEL_WINDOW_SECONDS || "60", 10);
 const validateRiderCancellation = (trip, actorId) => {
     if (!trip.riderId) {

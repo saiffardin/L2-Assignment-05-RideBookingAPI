@@ -1,7 +1,7 @@
 import { Location } from "./location.model";
 import httpStatusCodes from "http-status-codes";
-import AppError from "@/app/error-helpers/AppError";
-import { LocationNameType } from "@/app/constants/enum.locations";
+import AppError from "../../error-helpers/AppError";
+import { LocationNameType } from "../../constants/enum.locations";
 import { locationsData } from "./location.data";
 
 const calculateFare = async (

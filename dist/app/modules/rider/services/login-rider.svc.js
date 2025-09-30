@@ -15,10 +15,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.loginRider = void 0;
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const rider_model_1 = require("../rider.model");
-const constants_1 = require("@/app/constants");
+const constants_1 = require("../../../constants");
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
-const AppError_1 = __importDefault(require("@/app/error-helpers/AppError"));
-const user_tokens_1 = require("@/app/utils/user-tokens");
+const AppError_1 = __importDefault(require("../../../error-helpers/AppError"));
+const user_tokens_1 = require("../../../utils/user-tokens");
 const loginRider = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = payload;
     const user = yield rider_model_1.Rider.findOne({ email });

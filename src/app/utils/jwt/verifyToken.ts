@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { CustomJwtPayload } from "./types";
-import AppError from "@/app/error-helpers/AppError";
+import AppError from "../../error-helpers/AppError";
 
 export const verifyToken = (
   accessToken: string | undefined,

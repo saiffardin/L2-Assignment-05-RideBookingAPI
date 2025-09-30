@@ -1,8 +1,8 @@
 import { generateToken } from "../jwt";
-import { envVars } from "@/app/config";
+import { envVars } from "../../config";
 import httpCodes from "http-status-codes";
 import { CustomJwtPayload } from "../jwt/types";
-import AppError from "@/app/error-helpers/AppError";
+import AppError from "../../error-helpers/AppError";
 
 export const createUserTokens = (payload: CustomJwtPayload) => {
   if (!payload.userId || !payload.email || !payload.role) {

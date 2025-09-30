@@ -25,11 +25,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createDriver = void 0;
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
-const AppError_1 = __importDefault(require("@/app/error-helpers/AppError"));
+const AppError_1 = __importDefault(require("../../../error-helpers/AppError"));
 const driver_model_1 = require("../driver.model");
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
-const config_1 = require("@/app/config");
-const constants_1 = require("@/app/constants");
+const config_1 = require("../../../config");
+const constants_1 = require("../../../constants");
 const createDriver = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = payload, rest = __rest(payload, ["email", "password"]);
     const isUserExist = yield driver_model_1.Driver.findOne({ email });

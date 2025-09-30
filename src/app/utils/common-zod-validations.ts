@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { UserAccount } from "@/app/constants";
+import { UserAccount } from "../constants";
 
 export const nameZodValidation = z
   .string({ invalid_type_error: "Name must be string." })

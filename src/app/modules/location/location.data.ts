@@ -1,4 +1,4 @@
-import { LocationName } from "@/app/constants/enum.locations";
+import { LocationName } from "../../constants/enum.locations";
 import { ILocation } from "./location.interface";
 
 export const locationsData: ILocation[] = [

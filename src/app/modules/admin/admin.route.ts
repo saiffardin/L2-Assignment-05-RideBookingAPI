@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { AdminControllers } from "./admin.controller";
 import { loginAdminZodSchema } from "./admin.validation";
-import { validateZodRequest } from "@/app/middlewares/validateZodRequest";
+import { validateZodRequest } from "../../middlewares/validateZodRequest";
 
 export const AdminRoutes = Router();
 

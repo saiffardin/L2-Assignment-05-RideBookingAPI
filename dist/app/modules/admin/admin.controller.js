@@ -16,8 +16,8 @@ exports.AdminControllers = void 0;
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const admin_service_1 = require("./admin.service");
-const catchAsync_1 = require("@/app/utils/catchAsync");
-const sendResponse_1 = require("@/app/utils/sendResponse");
+const catchAsync_1 = require("../../utils/catchAsync");
+const sendResponse_1 = require("../../utils/sendResponse");
 const loginAdmin = (0, catchAsync_1.catchAsync)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const admin = yield admin_service_1.AdminServices.loginAdmin(req.body);
     (0, sendResponse_1.sendResponse)(res, {

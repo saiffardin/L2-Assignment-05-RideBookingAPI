@@ -10,8 +10,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateRiderTripStatus = void 0;
-const constants_1 = require("@/app/constants");
-const rider_model_1 = require("@/app/modules/rider/rider.model");
+const constants_1 = require("../../../../constants");
+const rider_model_1 = require("../../../rider/rider.model");
 const updateRiderTripStatus = (trip, isReqFromRider) => __awaiter(void 0, void 0, void 0, function* () {
     const riderId = trip.riderId;
     if (isReqFromRider) {

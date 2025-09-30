@@ -1,8 +1,8 @@
 import { Trip } from "../trip.model";
 import httpStatusCodes from "http-status-codes";
 import { Driver } from "../../driver/driver.model";
-import AppError from "@/app/error-helpers/AppError";
-import { UserStatus, Role, TripStatus } from "@/app/constants";
+import AppError from "../../../error-helpers/AppError";
+import { UserStatus, Role, TripStatus } from "../../../constants";
 
 export const acceptTrip = async (tripId: string, driverId: string) => {
   const trip = await Trip.findById(tripId);

@@ -1,4 +1,4 @@
-import { LocationNameType } from "@/app/constants/enum.locations";
+import { LocationNameType } from "../../constants/enum.locations";
 
 export interface IFare {
   destination: string;

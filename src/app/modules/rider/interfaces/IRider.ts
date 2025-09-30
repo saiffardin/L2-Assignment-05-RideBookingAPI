@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import { UserAccount, UserStatus } from "@/app/constants";
+import { UserAccount, UserStatus } from "../../../constants";
 
 export interface IRider {
   _id?: Types.ObjectId;

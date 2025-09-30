@@ -10,8 +10,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateDriverTripStatus = void 0;
-const constants_1 = require("@/app/constants");
-const driver_model_1 = require("@/app/modules/driver/driver.model");
+const constants_1 = require("../../../../constants");
+const driver_model_1 = require("../../../driver/driver.model");
 const updateDriverTripStatus = (driverId) => __awaiter(void 0, void 0, void 0, function* () {
     if (driverId) {
         yield driver_model_1.Driver.findByIdAndUpdate(driverId, {

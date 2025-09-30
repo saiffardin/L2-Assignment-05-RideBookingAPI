@@ -1,10 +1,10 @@
 import bcryptjs from "bcryptjs";
 import { Rider } from "../rider.model";
-import { Role } from "@/app/constants";
+import { Role } from "../../../constants";
 import httpStatus from "http-status-codes";
 import { IRider } from "../interfaces/IRider";
-import AppError from "@/app/error-helpers/AppError";
-import { createUserTokens } from "@/app/utils/user-tokens";
+import AppError from "../../../error-helpers/AppError";
+import { createUserTokens } from "../../../utils/user-tokens";
 
 export const loginRider = async (
   payload: Pick<IRider, "email" | "password">

@@ -13,12 +13,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.renewDriverAccessToken = void 0;
-const config_1 = require("@/app/config");
+const config_1 = require("../../config");
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
-const constants_1 = require("@/app/constants");
+const constants_1 = require("../../constants");
 const jwt_1 = require("../jwt");
-const AppError_1 = __importDefault(require("@/app/error-helpers/AppError"));
-const driver_model_1 = require("@/app/modules/driver/driver.model");
+const AppError_1 = __importDefault(require("../../error-helpers/AppError"));
+const driver_model_1 = require("../../modules/driver/driver.model");
 const validateDriverForTokenRenewal = (user) => __awaiter(void 0, void 0, void 0, function* () {
     const { accountStatus, isDeleted } = user;
     if (accountStatus === constants_1.UserAccount.BLOCKED ||

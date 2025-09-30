@@ -1,11 +1,11 @@
-import { envVars } from "@/app/config";
+import { envVars } from "../../config";
 import httpStatus from "http-status-codes";
 import { CustomJwtPayload } from "../jwt/types";
-import { Role, UserAccount } from "@/app/constants";
+import { Role, UserAccount } from "../../constants";
 import { generateToken, verifyToken } from "../jwt";
-import AppError from "@/app/error-helpers/AppError";
-import { Driver } from "@/app/modules/driver/driver.model";
-import { IDriver } from "@/app/modules/driver/interfaces/IDriver";
+import AppError from "../../error-helpers/AppError";
+import { Driver } from "../../modules/driver/driver.model";
+import { IDriver } from "../../modules/driver/interfaces/IDriver";
 
 const validateDriverForTokenRenewal = async (user: IDriver) => {
   const { accountStatus, isDeleted } = user;

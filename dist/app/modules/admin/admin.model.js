@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Admin = void 0;
-const constants_1 = require("@/app/constants");
+const constants_1 = require("../../constants");
 const mongoose_1 = require("mongoose");
 const AdminSchema = new mongoose_1.Schema({
     name: { type: String, required: true },

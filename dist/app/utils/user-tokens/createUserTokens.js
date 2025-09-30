@@ -5,9 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createUserTokens = void 0;
 const jwt_1 = require("../jwt");
-const config_1 = require("@/app/config");
+const config_1 = require("../../config");
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
-const AppError_1 = __importDefault(require("@/app/error-helpers/AppError"));
+const AppError_1 = __importDefault(require("../../error-helpers/AppError"));
 const createUserTokens = (payload) => {
     if (!payload.userId || !payload.email || !payload.role) {
         throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, "Missing User Info.");

@@ -1,7 +1,7 @@
 import {
   TErrorSources,
   TGenericErrorResponse,
-} from "@/app/interfaces/error.types";
+} from "../../interfaces/error.types";
 import { type Error } from "mongoose";
 
 // type errType = mongoose.Error.ValidationError;

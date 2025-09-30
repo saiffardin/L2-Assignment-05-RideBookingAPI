@@ -16,8 +16,8 @@ exports.AdminServices = exports.loginAdmin = void 0;
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const admin_model_1 = require("./admin.model");
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
-const AppError_1 = __importDefault(require("@/app/error-helpers/AppError"));
-const user_tokens_1 = require("@/app/utils/user-tokens");
+const AppError_1 = __importDefault(require("../../error-helpers/AppError"));
+const user_tokens_1 = require("../../utils/user-tokens");
 const loginAdmin = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = payload;
     const user = yield admin_model_1.Admin.findOne({ email });

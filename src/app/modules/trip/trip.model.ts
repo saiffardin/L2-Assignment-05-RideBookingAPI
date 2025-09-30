@@ -1,7 +1,7 @@
-import { Role, TripStatus } from "@/app/constants";
+import { Role, TripStatus } from "../../constants";
 import { Schema, model } from "mongoose";
 import { ITrip } from "./trip.interface";
-import { LocationName } from "@/app/constants/enum.locations";
+import { LocationName } from "../../constants/enum.locations";
 
 const TripHistorySchema = new Schema(
   {

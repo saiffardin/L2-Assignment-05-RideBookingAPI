@@ -13,9 +13,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateTripStatus = void 0;
-const constants_1 = require("@/app/constants");
+const constants_1 = require("../../../constants");
 const trip_model_1 = require("../trip.model");
-const AppError_1 = __importDefault(require("@/app/error-helpers/AppError"));
+const AppError_1 = __importDefault(require("../../../error-helpers/AppError"));
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const driver_model_1 = require("../../driver/driver.model");
 const mongoose_1 = require("mongoose");

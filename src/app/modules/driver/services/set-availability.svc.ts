@@ -1,6 +1,6 @@
-import { UserStatus } from "@/app/constants";
+import { UserStatus } from "../../../constants";
 import { Driver } from "../driver.model";
-import AppError from "@/app/error-helpers/AppError";
+import AppError from "../../../error-helpers/AppError";
 import httpStatusCodes from "http-status-codes";
 
 export const setAvailability = async (

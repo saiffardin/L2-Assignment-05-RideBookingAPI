@@ -1,5 +1,5 @@
 import { Trip } from "../../trip/trip.model";
-import { TripStatus } from "@/app/constants";
+import { TripStatus } from "../../../constants";
 
 export const earningsHistory = async (driverId: string) => {
   const trips = await Trip.find(

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.locationsData = void 0;
-const enum_locations_1 = require("@/app/constants/enum.locations");
+const enum_locations_1 = require("../../constants/enum.locations");
 exports.locationsData = [
     {
         name: enum_locations_1.LocationName.BANANI,

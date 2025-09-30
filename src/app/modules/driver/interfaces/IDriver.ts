@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import { UserStatus, UserAccount } from "@/app/constants";
+import { UserStatus, UserAccount } from "../../../constants";
 
 export interface IDriver {
   _id?: Types.ObjectId;

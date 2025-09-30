@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Trip = void 0;
-const constants_1 = require("@/app/constants");
+const constants_1 = require("../../constants");
 const mongoose_1 = require("mongoose");
-const enum_locations_1 = require("@/app/constants/enum.locations");
+const enum_locations_1 = require("../../constants/enum.locations");
 const TripHistorySchema = new mongoose_1.Schema({
     status: { type: String, required: true },
     timestamp: { type: Date, default: Date.now },

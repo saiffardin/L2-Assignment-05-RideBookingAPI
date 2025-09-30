@@ -2,8 +2,8 @@ import bcryptjs from "bcryptjs";
 import { Admin } from "./admin.model";
 import { IAdmin } from "./admin.interface";
 import httpStatusCodes from "http-status-codes";
-import AppError from "@/app/error-helpers/AppError";
-import { createUserTokens } from "@/app/utils/user-tokens";
+import AppError from "../../error-helpers/AppError";
+import { createUserTokens } from "../../utils/user-tokens";
 
 export const loginAdmin = async (
   payload: Pick<IAdmin, "email" | "password">

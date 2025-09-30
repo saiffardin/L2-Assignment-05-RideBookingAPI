@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.LocationServices = void 0;
 const location_model_1 = require("./location.model");
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
-const AppError_1 = __importDefault(require("@/app/error-helpers/AppError"));
+const AppError_1 = __importDefault(require("../../error-helpers/AppError"));
 const location_data_1 = require("./location.data");
 const calculateFare = (pickUp, dest) => __awaiter(void 0, void 0, void 0, function* () {
     var _a, _b, _c;

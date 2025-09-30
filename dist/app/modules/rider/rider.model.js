@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Rider = void 0;
 const mongoose_1 = require("mongoose");
-const constants_1 = require("@/app/constants");
+const constants_1 = require("../../constants");
 const RiderSchema = new mongoose_1.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },

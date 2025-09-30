@@ -1,10 +1,10 @@
 import httpStatusCodes from "http-status-codes";
-import AppError from "@/app/error-helpers/AppError";
+import AppError from "../../../error-helpers/AppError";
 import { Driver } from "../driver.model";
 import { IDriver } from "../interfaces/IDriver";
 import bcryptjs from "bcryptjs";
-import { envVars } from "@/app/config";
-import { UserStatus, UserAccount } from "@/app/constants";
+import { envVars } from "../../../config";
+import { UserStatus, UserAccount } from "../../../constants";
 
 export const createDriver = async (payload: Partial<IDriver>) => {
   const { email, password, ...rest } = payload;

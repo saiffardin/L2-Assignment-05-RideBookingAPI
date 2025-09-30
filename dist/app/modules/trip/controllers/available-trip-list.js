@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.availableTripList = void 0;
 const services_1 = require("../services");
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
-const catchAsync_1 = require("@/app/utils/catchAsync");
-const sendResponse_1 = require("@/app/utils/sendResponse");
+const catchAsync_1 = require("../../../utils/catchAsync");
+const sendResponse_1 = require("../../../utils/sendResponse");
 exports.availableTripList = (0, catchAsync_1.catchAsync)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const availableTrips = yield services_1.TripServices.availableTripList();
     (0, sendResponse_1.sendResponse)(res, {

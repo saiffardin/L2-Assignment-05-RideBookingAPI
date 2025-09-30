@@ -15,8 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.LocationControllers = void 0;
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
-const catchAsync_1 = require("@/app/utils/catchAsync");
-const sendResponse_1 = require("@/app/utils/sendResponse");
+const catchAsync_1 = require("../../utils/catchAsync");
+const sendResponse_1 = require("../../utils/sendResponse");
 const location_service_1 = require("./location.service");
 const seedLocations = (0, catchAsync_1.catchAsync)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const locs = yield location_service_1.LocationServices.seedLocations();

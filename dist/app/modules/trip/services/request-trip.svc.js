@@ -16,8 +16,8 @@ exports.requestTrip = void 0;
 const trip_model_1 = require("../trip.model");
 const rider_model_1 = require("../../rider/rider.model");
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
-const constants_1 = require("@/app/constants");
-const AppError_1 = __importDefault(require("@/app/error-helpers/AppError"));
+const constants_1 = require("../../../constants");
+const AppError_1 = __importDefault(require("../../../error-helpers/AppError"));
 const location_service_1 = require("../../location/location.service");
 const requestTrip = (riderId, pickup, destination) => __awaiter(void 0, void 0, void 0, function* () {
     const rider = yield rider_model_1.Rider.findById(riderId);

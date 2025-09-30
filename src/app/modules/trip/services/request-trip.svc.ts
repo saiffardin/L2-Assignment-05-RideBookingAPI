@@ -1,10 +1,10 @@
 import { Trip } from "../trip.model";
 import { Rider } from "../../rider/rider.model";
 import httpStatusCodes from "http-status-codes";
-import { Role, TripStatus, UserStatus } from "@/app/constants";
-import AppError from "@/app/error-helpers/AppError";
+import { Role, TripStatus, UserStatus } from "../../../constants";
+import AppError from "../../../error-helpers/AppError";
 import { IRider } from "../../rider/interfaces/IRider";
-import { LocationNameType } from "@/app/constants/enum.locations";
+import { LocationNameType } from "../../../constants/enum.locations";
 import { LocationServices } from "../../location/location.service";
 
 export const requestTrip = async (

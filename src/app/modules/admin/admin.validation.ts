@@ -2,7 +2,7 @@ import { z } from "zod";
 import {
   emailZodValidation,
   passwordZodValidation,
-} from "@/app/utils/common-zod-validations";
+} from "../../utils/common-zod-validations";
 
 export const loginAdminZodSchema = z.object({
   email: emailZodValidation,

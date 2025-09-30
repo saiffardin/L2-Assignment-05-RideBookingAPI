@@ -1,7 +1,7 @@
 import { ITrip } from "../../../trip.interface";
-import { TripStatus } from "@/app/constants";
+import { TripStatus } from "../../../../../constants";
 import httpStatusCodes from "http-status-codes";
-import AppError from "@/app/error-helpers/AppError";
+import AppError from "../../../../../error-helpers/AppError";
 
 export const validateDriverCancellation = (
   trip: ITrip,

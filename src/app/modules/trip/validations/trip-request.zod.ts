@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { LocationName } from "@/app/constants/enum.locations";
+import { LocationName } from "../../../constants/enum.locations";
 
 export const tripRequestZodSchema = z.object({
   pickup: z.nativeEnum(LocationName),

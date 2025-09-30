@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.userAccountZodValidation = exports.isDeletedZodValidation = exports.pictureZodValidation = exports.phoneZodValidation = exports.passwordZodValidation = exports.emailZodValidation = exports.nameZodValidation = void 0;
 const zod_1 = require("zod");
-const constants_1 = require("@/app/constants");
+const constants_1 = require("../constants");
 exports.nameZodValidation = zod_1.z
     .string({ invalid_type_error: "Name must be string." })
     .min(2, { message: "Name must be at least 2 characters long." })

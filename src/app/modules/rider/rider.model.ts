@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 import { IRider } from "./interfaces/IRider";
-import { UserStatus, UserAccount } from "@/app/constants";
+import { UserStatus, UserAccount } from "../../constants";
 
 const RiderSchema = new Schema<IRider>(
   {

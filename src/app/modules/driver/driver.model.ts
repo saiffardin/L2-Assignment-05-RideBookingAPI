@@ -1,6 +1,6 @@
 import { model, Schema } from "mongoose";
 import { IDriver, IVehicleInfo } from "./interfaces/IDriver";
-import { UserStatus, UserAccount, VehicleType } from "@/app/constants";
+import { UserStatus, UserAccount, VehicleType } from "../../constants";
 
 const vehicleInfoSchema = new Schema<IVehicleInfo>(
   {

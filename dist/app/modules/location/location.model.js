@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Location = void 0;
 const mongoose_1 = require("mongoose");
-const enum_locations_1 = require("@/app/constants/enum.locations");
+const enum_locations_1 = require("../../constants/enum.locations");
 const LocationSchema = new mongoose_1.Schema({
     name: {
         type: String,

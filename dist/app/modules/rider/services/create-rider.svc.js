@@ -25,11 +25,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createRider = void 0;
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
-const config_1 = require("@/app/config");
+const config_1 = require("../../../config");
 const rider_model_1 = require("../rider.model");
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
-const AppError_1 = __importDefault(require("@/app/error-helpers/AppError"));
-const constants_1 = require("@/app/constants");
+const AppError_1 = __importDefault(require("../../../error-helpers/AppError"));
+const constants_1 = require("../../../constants");
 const createRider = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = payload, rest = __rest(payload, ["email", "password"]);
     const isUserExist = yield rider_model_1.Rider.findOne({ email });

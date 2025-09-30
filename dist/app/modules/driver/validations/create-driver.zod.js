@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createDriverZodSchema = exports.vehicleInfoSchema = void 0;
 const zod_1 = require("zod");
-const common_zod_validations_1 = require("@/app/utils/common-zod-validations");
-const constants_1 = require("@/app/constants");
+const common_zod_validations_1 = require("../../../utils/common-zod-validations");
+const constants_1 = require("../../../constants");
 exports.vehicleInfoSchema = zod_1.z.object({
     type: zod_1.z.nativeEnum(constants_1.VehicleType),
     numberPlate: zod_1.z

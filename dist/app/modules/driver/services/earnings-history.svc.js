@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.earningsHistory = void 0;
 const trip_model_1 = require("../../trip/trip.model");
-const constants_1 = require("@/app/constants");
+const constants_1 = require("../../../constants");
 const earningsHistory = (driverId) => __awaiter(void 0, void 0, void 0, function* () {
     const trips = yield trip_model_1.Trip.find({
         driverId,

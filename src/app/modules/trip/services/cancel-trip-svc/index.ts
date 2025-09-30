@@ -1,8 +1,8 @@
 import { Types } from "mongoose";
 import { Trip } from "../../trip.model";
 import httpStatusCodes from "http-status-codes";
-import AppError from "@/app/error-helpers/AppError";
-import { Role, RoleType, TripStatus } from "@/app/constants";
+import AppError from "../../../../error-helpers/AppError";
+import { Role, RoleType, TripStatus } from "../../../../constants";
 import { updateRiderTripStatus } from "./updateRiderTripStatus";
 import { updateDriverTripStatus } from "./updateDriverTripStatus";
 import { checkValidations } from "./check-validations";

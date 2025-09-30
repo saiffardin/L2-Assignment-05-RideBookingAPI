@@ -13,9 +13,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.availableTripList = void 0;
-const constants_1 = require("@/app/constants");
+const constants_1 = require("../../../constants");
 const trip_model_1 = require("../trip.model");
-const AppError_1 = __importDefault(require("@/app/error-helpers/AppError"));
+const AppError_1 = __importDefault(require("../../../error-helpers/AppError"));
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const availableTripList = () => __awaiter(void 0, void 0, void 0, function* () {
     const trips = yield trip_model_1.Trip.find({ status: constants_1.TripStatus.SEARCHING_DRIVER }).sort({

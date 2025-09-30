@@ -16,8 +16,8 @@ exports.acceptTrip = void 0;
 const trip_model_1 = require("../trip.model");
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const driver_model_1 = require("../../driver/driver.model");
-const AppError_1 = __importDefault(require("@/app/error-helpers/AppError"));
-const constants_1 = require("@/app/constants");
+const AppError_1 = __importDefault(require("../../../error-helpers/AppError"));
+const constants_1 = require("../../../constants");
 const acceptTrip = (tripId, driverId) => __awaiter(void 0, void 0, void 0, function* () {
     const trip = yield trip_model_1.Trip.findById(tripId);
     if (!trip) {

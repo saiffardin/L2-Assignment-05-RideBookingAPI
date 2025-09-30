@@ -14,11 +14,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.loginDriver = void 0;
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
-const constants_1 = require("@/app/constants");
+const constants_1 = require("../../../constants");
 const driver_model_1 = require("../driver.model");
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
-const AppError_1 = __importDefault(require("@/app/error-helpers/AppError"));
-const user_tokens_1 = require("@/app/utils/user-tokens");
+const AppError_1 = __importDefault(require("../../../error-helpers/AppError"));
+const user_tokens_1 = require("../../../utils/user-tokens");
 const loginDriver = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = payload;
     const user = yield driver_model_1.Driver.findOne({ email });

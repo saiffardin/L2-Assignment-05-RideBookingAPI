@@ -7,8 +7,8 @@ import {
   phoneZodValidation,
   pictureZodValidation,
   userAccountZodValidation,
-} from "@/app/utils/common-zod-validations";
-import { UserStatus, VehicleType } from "@/app/constants";
+} from "../../../utils/common-zod-validations";
+import { UserStatus, VehicleType } from "../../../constants";
 
 export const vehicleInfoSchema = z.object({
   type: z.nativeEnum(VehicleType),

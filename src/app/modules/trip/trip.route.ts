@@ -1,10 +1,10 @@
 import { Router } from "express";
 import { TripControllers } from "./controllers";
 
-import { validateZodRequest } from "@/app/middlewares/validateZodRequest";
+import { validateZodRequest } from "../../middlewares/validateZodRequest";
 import { tripRequestZodSchema } from "./validations";
-import { checkAuth } from "@/app/middlewares/checkAuth";
-import { Role } from "@/app/constants";
+import { checkAuth } from "../../middlewares/checkAuth";
+import { Role } from "../../constants";
 
 export const TripRoutes = Router();
 

@@ -1,10 +1,10 @@
 import bcryptjs from "bcryptjs";
-import { Role } from "@/app/constants";
+import { Role } from "../../../constants";
 import { Driver } from "../driver.model";
 import httpStatus from "http-status-codes";
 import { IDriver } from "../interfaces/IDriver";
-import AppError from "@/app/error-helpers/AppError";
-import { createUserTokens } from "@/app/utils/user-tokens";
+import AppError from "../../../error-helpers/AppError";
+import { createUserTokens } from "../../../utils/user-tokens";
 
 export const loginDriver = async (
   payload: Pick<IDriver, "email" | "password">

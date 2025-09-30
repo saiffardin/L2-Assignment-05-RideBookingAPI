@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { UserStatus } from "@/app/constants";
+import { UserStatus } from "../../../constants";
 
 export const setAvailabilityZodSchema = z.object({
   status: z.enum([UserStatus.ONLINE, UserStatus.OFFLINE]),

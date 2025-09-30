@@ -1,6 +1,6 @@
-import { TripStatus } from "@/app/constants";
+import { TripStatus } from "../../../../../constants";
 import httpStatusCodes from "http-status-codes";
-import AppError from "@/app/error-helpers/AppError";
+import AppError from "../../../../../error-helpers/AppError";
 import { ITrip } from "../../../trip.interface";
 
 const CANCEL_WINDOW_SECONDS = parseInt(

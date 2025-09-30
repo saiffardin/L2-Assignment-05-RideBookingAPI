@@ -1,4 +1,4 @@
-import AppError from "@/app/error-helpers/AppError";
+import AppError from "../../../error-helpers/AppError";
 import httpStatusCodes from "http-status-codes";
 import { Trip } from "../../trip/trip.model";
 

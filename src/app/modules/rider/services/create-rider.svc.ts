@@ -1,10 +1,10 @@
 import bcryptjs from "bcryptjs";
-import { envVars } from "@/app/config";
+import { envVars } from "../../../config";
 import { Rider } from "../rider.model";
 import { IRider } from "../interfaces/IRider";
 import httpStatusCodes from "http-status-codes";
-import AppError from "@/app/error-helpers/AppError";
-import { UserStatus, UserAccount } from "@/app/constants";
+import AppError from "../../../error-helpers/AppError";
+import { UserStatus, UserAccount } from "../../../constants";
 
 export const createRider = async (payload: Partial<IRider>) => {
   const { email, password, ...rest } = payload;

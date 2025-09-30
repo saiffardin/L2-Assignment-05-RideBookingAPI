@@ -4,9 +4,9 @@ import {
   TripStatus,
   TripTypes,
   UserStatus,
-} from "@/app/constants";
+} from "../../../constants";
 import { Trip } from "../trip.model";
-import AppError from "@/app/error-helpers/AppError";
+import AppError from "../../../error-helpers/AppError";
 import httpStatusCodes from "http-status-codes";
 import { Driver } from "../../driver/driver.model";
 import { Types } from "mongoose";

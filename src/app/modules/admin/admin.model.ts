@@ -1,4 +1,4 @@
-import { Role } from "@/app/constants";
+import { Role } from "../../constants";
 import { Schema, model } from "mongoose";
 import { IAdmin } from "./admin.interface";
 
