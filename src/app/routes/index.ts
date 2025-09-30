@@ -3,6 +3,7 @@ import { DriverRoutes } from "../modules/driver/driver.route";
 import { RiderRoutes } from "../modules/rider/rider.route";
 import { AdminRoutes } from "../modules/admin/admin.route";
 import { TripRoutes } from "../modules/trip/trip.route";
+import { LocationRoutes } from "../modules/location/location.route";
 
 export const router = Router();
 
@@ -22,6 +23,10 @@ const moduleRoutes = [
   {
     path: "/trip",
     route: TripRoutes,
+  },
+  {
+    path: "/location",
+    route: LocationRoutes,
   },
 ];
 

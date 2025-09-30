@@ -2,6 +2,7 @@ import { Location } from "./location.model";
 import httpStatusCodes from "http-status-codes";
 import AppError from "@/app/error-helpers/AppError";
 import { LocationNameType } from "@/app/constants/enum.locations";
+import { locationsData } from "./location.data";
 
 const calculateFare = async (
   pickUp: LocationNameType,
@@ -18,6 +19,24 @@ const calculateFare = async (
   return destDB?.fare ?? 0;
 };
 
+const seedLocations = async () => {
+  await Location.deleteMany({});
+
+  // eslint-disable-next-line no-console
+  console.log("==================");
+
+  // eslint-disable-next-line no-console
+  console.log("Cleared old locations.");
+
+  const locs = await Location.insertMany(locationsData);
+
+  // eslint-disable-next-line no-console
+  console.log("Seeded locations successfully. 🚀");
+
+  return locs;
+};
+
 export const LocationServices = {
   calculateFare,
+  seedLocations,
 };
