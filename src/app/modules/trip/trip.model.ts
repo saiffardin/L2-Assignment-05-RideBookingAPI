@@ -46,11 +46,11 @@ const TripSchema = new Schema<ITrip>({
   },
 
   fare: { type: Number, default: 0 },
-  requestedAt: { type: Date, default: Date.now }, // while trip request
+  requestedAt: { type: Date, default: Date.now },
   acceptedAt: Date,
   pickedUpAt: Date,
   completedAt: Date,
-  cancelledAt: Date, // while trip cancelled
+  cancelledAt: Date,
 
   history: { type: [TripHistorySchema], default: [] },
 });

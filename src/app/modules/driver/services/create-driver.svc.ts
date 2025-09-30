@@ -20,11 +20,6 @@ export const createDriver = async (payload: Partial<IDriver>) => {
     Number(envVars.BCRYPT_SALT_ROUND)
   );
 
-  // const isPasswordMatched = await bcryptjs.compare(
-  //   password as string,
-  //   hashedPassword
-  // );
-
   const user = await Driver.create({
     email,
     password: hashedPassword,

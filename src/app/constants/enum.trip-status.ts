@@ -1,10 +1,10 @@
 export enum TripStatus {
   OFFLINE = "OFFLINE",
-  SEARCHING_DRIVER = "SEARCHING_DRIVER", // Requested
-  DRIVER_ASSIGNED = "DRIVER_ASSIGNED", // Accepted
-  TRIP_STARTED = "TRIP_STARTED", // Picked UP + In transit
-  TRIP_COMPLETED = "TRIP_COMPLETED", // completed
-  CANCELLED = "CANCELLED", // cancelled
+  SEARCHING_DRIVER = "SEARCHING_DRIVER",
+  DRIVER_ASSIGNED = "DRIVER_ASSIGNED",
+  TRIP_STARTED = "TRIP_STARTED",
+  TRIP_COMPLETED = "TRIP_COMPLETED",
+  CANCELLED = "CANCELLED",
 }
 
 export type TripTypes = (typeof TripStatus)[keyof typeof TripStatus];

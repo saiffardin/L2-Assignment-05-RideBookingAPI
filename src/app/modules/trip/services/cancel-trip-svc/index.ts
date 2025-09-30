@@ -13,11 +13,6 @@ interface Props {
   actorId?: string;
 }
 
-/**
- * Riders have a complex logic for cancellation.
- * Drivers can only cancel before trip starts.
- * Admins or super-admins can always cancel a trip from any stage.
- */
 export const cancelTrip = async (values: Props) => {
   const { tripId, actorRole, actorId } = values;
 

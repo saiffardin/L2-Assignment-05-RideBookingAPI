@@ -10,8 +10,8 @@ export const TripRoutes = Router();
 
 TripRoutes.post(
   "/request",
-  validateZodRequest(tripRequestZodSchema),
   checkAuth(Role.RIDER),
+  validateZodRequest(tripRequestZodSchema),
   TripControllers.requestTrip
 );
 

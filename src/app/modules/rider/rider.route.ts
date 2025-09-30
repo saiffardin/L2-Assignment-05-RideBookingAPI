@@ -16,16 +16,3 @@ RiderRoutes.post(
   validateZodRequest(loginRiderZodSchema),
   RiderControllers.loginRider
 );
-
-// UserRoutes.get(
-//   "/all-users",
-//   checkAuth(Role.ADMIN, Role.SUPER_ADMIN),
-//   UserControllers.getAllUsers
-// );
-
-// UserRoutes.patch(
-//   "/:userId",
-//   checkAuth(...Object.values(Role)),
-//   validateZodRequest(updateUserZodSchema),
-//   UserControllers.updateUser
-// );

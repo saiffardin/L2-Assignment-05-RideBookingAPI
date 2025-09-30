@@ -1,7 +1,13 @@
 import { Router } from "express";
 import { DriverControllers } from "./controllers";
-import { createDriverZodSchema, loginDriverZodSchema } from "./validations";
+import {
+  createDriverZodSchema,
+  loginDriverZodSchema,
+  setAvailabilityZodSchema,
+} from "./validations";
 import { validateZodRequest } from "@/app/middlewares/validateZodRequest";
+import { checkAuth } from "@/app/middlewares/checkAuth";
+import { Role } from "@/app/constants";
 
 export const DriverRoutes = Router();
 
@@ -17,15 +23,9 @@ DriverRoutes.post(
   DriverControllers.loginDriver
 );
 
-// UserRoutes.get(
-//   "/all-users",
-//   checkAuth(Role.ADMIN, Role.SUPER_ADMIN),
-//   UserControllers.getAllUsers
-// );
-
-// UserRoutes.patch(
-//   "/:userId",
-//   checkAuth(...Object.values(Role)),
-//   validateZodRequest(updateUserZodSchema),
-//   UserControllers.updateUser
-// );
+DriverRoutes.post(
+  "/availability",
+  checkAuth(Role.DRIVER),
+  validateZodRequest(setAvailabilityZodSchema),
+  DriverControllers.setAvailability
+);
