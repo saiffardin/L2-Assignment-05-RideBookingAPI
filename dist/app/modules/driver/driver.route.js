@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DriverRoutes = void 0;
+const express_1 = require("express");
+const controllers_1 = require("./controllers");
+const validations_1 = require("./validations");
+const validateZodRequest_1 = require("@/app/middlewares/validateZodRequest");
+const checkAuth_1 = require("@/app/middlewares/checkAuth");
+const constants_1 = require("@/app/constants");
+exports.DriverRoutes = (0, express_1.Router)();
+exports.DriverRoutes.post("/register", (0, validateZodRequest_1.validateZodRequest)(validations_1.createDriverZodSchema), controllers_1.DriverControllers.createDriver);
+exports.DriverRoutes.post("/login", (0, validateZodRequest_1.validateZodRequest)(validations_1.loginDriverZodSchema), controllers_1.DriverControllers.loginDriver);
+exports.DriverRoutes.post("/availability", (0, checkAuth_1.checkAuth)(constants_1.Role.DRIVER), (0, validateZodRequest_1.validateZodRequest)(validations_1.setAvailabilityZodSchema), controllers_1.DriverControllers.setAvailability);
