@@ -19,23 +19,13 @@ const constants_1 = require("../../constants");
 const jwt_1 = require("../jwt");
 const AppError_1 = __importDefault(require("../../error-helpers/AppError"));
 const rider_model_1 = require("../../modules/rider/rider.model");
-const validateRiderForTokenRenewal = (user) => __awaiter(void 0, void 0, void 0, function* () {
-    const { accountStatus, isDeleted } = user;
-    if (accountStatus === constants_1.UserAccount.BLOCKED ||
-        accountStatus === constants_1.UserAccount.INACTIVE) {
-        throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, `Rider account is ${accountStatus}.`);
-    }
-    if (isDeleted) {
-        throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, `Rider is deleted.`);
-    }
-});
+// saif :: TODO :: refresh token API
 const renewRiderAccessToken = (refreshToken) => __awaiter(void 0, void 0, void 0, function* () {
     const verifiedRefreshToken = (0, jwt_1.verifyToken)(refreshToken, config_1.envVars.JWT_REFRESH_SECRET);
     const rider = yield rider_model_1.Rider.findOne({ email: verifiedRefreshToken.email });
     if (!rider) {
         throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, "Rider does not exist.");
     }
-    yield validateRiderForTokenRenewal(rider);
     const jwtPayload = {
         userId: rider._id,
         email: rider.email,

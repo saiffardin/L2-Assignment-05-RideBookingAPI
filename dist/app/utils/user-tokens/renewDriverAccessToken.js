@@ -19,23 +19,13 @@ const constants_1 = require("../../constants");
 const jwt_1 = require("../jwt");
 const AppError_1 = __importDefault(require("../../error-helpers/AppError"));
 const driver_model_1 = require("../../modules/driver/driver.model");
-const validateDriverForTokenRenewal = (user) => __awaiter(void 0, void 0, void 0, function* () {
-    const { accountStatus, isDeleted } = user;
-    if (accountStatus === constants_1.UserAccount.BLOCKED ||
-        accountStatus === constants_1.UserAccount.INACTIVE) {
-        throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, `Driver account is ${accountStatus}.`);
-    }
-    if (isDeleted) {
-        throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, `Driver is deleted.`);
-    }
-});
+// saif :: TODO :: refresh token API
 const renewDriverAccessToken = (refreshToken) => __awaiter(void 0, void 0, void 0, function* () {
     const verifiedRefreshToken = (0, jwt_1.verifyToken)(refreshToken, config_1.envVars.JWT_REFRESH_SECRET);
     const driver = yield driver_model_1.Driver.findOne({ email: verifiedRefreshToken.email });
     if (!driver) {
         throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, "Driver does not exist.");
     }
-    yield validateDriverForTokenRenewal(driver);
     const jwtPayload = {
         userId: driver._id,
         email: driver.email,

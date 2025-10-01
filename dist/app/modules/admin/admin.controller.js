@@ -27,4 +27,82 @@ const loginAdmin = (0, catchAsync_1.catchAsync)((req, res, next) => __awaiter(vo
         data: admin,
     });
 }));
-exports.AdminControllers = { loginAdmin };
+const getAllDrivers = (0, catchAsync_1.catchAsync)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield admin_service_1.AdminServices.getAllDrivers();
+    (0, sendResponse_1.sendResponse)(res, {
+        success: true,
+        statusCode: http_status_codes_1.default.OK,
+        message: "All drivers retrieved successfully",
+        data: result,
+    });
+}));
+const getAllRiders = (0, catchAsync_1.catchAsync)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield admin_service_1.AdminServices.getAllRiders();
+    (0, sendResponse_1.sendResponse)(res, {
+        success: true,
+        statusCode: http_status_codes_1.default.OK,
+        message: "All riders retrieved successfully",
+        data: result,
+    });
+}));
+const getAllTrips = (0, catchAsync_1.catchAsync)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield admin_service_1.AdminServices.getAllTrips();
+    (0, sendResponse_1.sendResponse)(res, {
+        success: true,
+        statusCode: http_status_codes_1.default.OK,
+        message: "All trips retrieved successfully",
+        data: result,
+    });
+}));
+const approveDriver = (0, catchAsync_1.catchAsync)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const { driverId } = req.params;
+    const result = yield admin_service_1.AdminServices.approveDriver(driverId);
+    (0, sendResponse_1.sendResponse)(res, {
+        success: true,
+        statusCode: http_status_codes_1.default.OK,
+        message: "Driver approved successfully",
+        data: result,
+    });
+}));
+const suspendDriver = (0, catchAsync_1.catchAsync)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const { driverId } = req.params;
+    const result = yield admin_service_1.AdminServices.suspendDriver(driverId);
+    (0, sendResponse_1.sendResponse)(res, {
+        success: true,
+        statusCode: http_status_codes_1.default.OK,
+        message: "Driver suspended successfully",
+        data: result,
+    });
+}));
+const blockUser = (0, catchAsync_1.catchAsync)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const { userId } = req.params;
+    const { role } = req.body;
+    const result = yield admin_service_1.AdminServices.blockUser(userId, role);
+    (0, sendResponse_1.sendResponse)(res, {
+        success: true,
+        statusCode: http_status_codes_1.default.OK,
+        message: `${role} blocked successfully`,
+        data: result,
+    });
+}));
+const unblockUser = (0, catchAsync_1.catchAsync)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const { userId } = req.params;
+    const { role } = req.body;
+    const result = yield admin_service_1.AdminServices.unblockUser(userId, role);
+    (0, sendResponse_1.sendResponse)(res, {
+        success: true,
+        statusCode: http_status_codes_1.default.OK,
+        message: `${role} unblocked successfully`,
+        data: result,
+    });
+}));
+exports.AdminControllers = {
+    loginAdmin,
+    getAllDrivers,
+    getAllRiders,
+    getAllTrips,
+    approveDriver,
+    suspendDriver,
+    blockUser,
+    unblockUser,
+};

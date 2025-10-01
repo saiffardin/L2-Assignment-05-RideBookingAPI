@@ -4,6 +4,8 @@ exports.UserAccount = void 0;
 var UserAccount;
 (function (UserAccount) {
     UserAccount["ACTIVE"] = "ACTIVE";
-    UserAccount["INACTIVE"] = "INACTIVE";
     UserAccount["BLOCKED"] = "BLOCKED";
+    UserAccount["UNBLOCKED"] = "UNBLOCKED";
+    UserAccount["APPROVED"] = "APPROVED";
+    UserAccount["SUSPEND"] = "SUSPEND";
 })(UserAccount || (exports.UserAccount = UserAccount = {}));

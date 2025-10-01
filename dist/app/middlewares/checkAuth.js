@@ -17,6 +17,7 @@ const config_1 = require("../config");
 const jwt_1 = require("../utils/jwt");
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const AppError_1 = __importDefault(require("../error-helpers/AppError"));
+const checkAccountStatus_1 = require("../utils/checkAccountStatus");
 const checkAuth = (...authRoles) => (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const bearerToken = req.headers.authorization;
@@ -26,6 +27,7 @@ const checkAuth = (...authRoles) => (req, res, next) => __awaiter(void 0, void 0
             const msg = `You (${verifiedToken.role}) are not permitted for this route.`;
             throw new AppError_1.default(http_status_codes_1.default.FORBIDDEN, msg);
         }
+        yield (0, checkAccountStatus_1.checkAccountStatus)(verifiedToken.userId, verifiedToken.role);
         req.user = verifiedToken;
         next();
     }
