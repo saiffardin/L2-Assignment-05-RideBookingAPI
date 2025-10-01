@@ -42,11 +42,11 @@ export const loginAdmin = async (
   return { ...tokens, role: user.role };
 };
 
-const getAllDrivers = async () => await Driver.find();
+const getAllDrivers = async () => await Driver.find().select("-password");
 
-const getAllRiders = async () => await Rider.find();
+const getAllRiders = async () => await Rider.find().select("-password -__v");
 
-const getAllTrips = async () => await Trip.find();
+const getAllTrips = async () => await Trip.find().select("-__v");
 
 const approveDriver = async (driverId: string) => {
   const driver = await Driver.findByIdAndUpdate(
