@@ -39,6 +39,7 @@ export const cancelTrip = async (values: Props) => {
     trip.status = TripStatus.CANCELLED;
     trip.cancelledAt = new Date();
   } else if (isReqFromDriver) {
+    trip.driverId = null;
     trip.status = TripStatus.SEARCHING_DRIVER;
   }
 

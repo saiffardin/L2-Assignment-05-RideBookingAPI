@@ -24,7 +24,7 @@ function bootstrap() {
             const { DATABASE_URL, PORT } = config_1.envVars;
             yield mongoose_1.default.connect(DATABASE_URL);
             console.log("--------------------------------");
-            console.log("Mongoose Connected at:", DATABASE_URL);
+            console.log("MongoDB Connected.");
             server = app_1.default.listen(PORT, () => {
                 console.log(`Server Running on port ${PORT} `);
             });

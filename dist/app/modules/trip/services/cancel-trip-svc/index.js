@@ -42,6 +42,7 @@ const cancelTrip = (values) => __awaiter(void 0, void 0, void 0, function* () {
         trip.cancelledAt = new Date();
     }
     else if (isReqFromDriver) {
+        trip.driverId = null;
         trip.status = constants_1.TripStatus.SEARCHING_DRIVER;
     }
     trip.history.push({

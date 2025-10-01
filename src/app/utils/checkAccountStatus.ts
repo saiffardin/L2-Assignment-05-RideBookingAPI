@@ -25,7 +25,7 @@ export const checkAccountStatus = async (userId: string, role: RoleType) => {
 
   if (user?.status === UserStatus.OFFLINE) {
     const msg = `${role} is offline.`;
-    throw new AppError(httpStatusCodes.NOT_FOUND, msg);
+    throw new AppError(httpStatusCodes.BAD_REQUEST, msg);
   }
 
   const validArr = [

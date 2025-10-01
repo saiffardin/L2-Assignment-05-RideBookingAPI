@@ -34,7 +34,7 @@ const checkAccountStatus = (userId, role) => __awaiter(void 0, void 0, void 0, f
     }
     if ((user === null || user === void 0 ? void 0 : user.status) === constants_1.UserStatus.OFFLINE) {
         const msg = `${role} is offline.`;
-        throw new AppError_1.default(http_status_codes_1.default.NOT_FOUND, msg);
+        throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, msg);
     }
     const validArr = [
         constants_1.UserAccount.ACTIVE,

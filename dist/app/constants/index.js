@@ -19,3 +19,4 @@ __exportStar(require("./enum.roles"), exports);
 __exportStar(require("./enum.trip-status"), exports);
 __exportStar(require("./enum.user-account"), exports);
 __exportStar(require("./enum.vehicle-type"), exports);
+__exportStar(require("./exclude-paths"), exports);

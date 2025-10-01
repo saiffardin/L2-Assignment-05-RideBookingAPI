@@ -27,13 +27,13 @@ const updateTripStatus = (values) => __awaiter(void 0, void 0, void 0, function*
     if (!trip) {
         throw new AppError_1.default(http_status_codes_1.default.NOT_FOUND, "Trip not found.");
     }
-    if (((_a = trip.driverId) === null || _a === void 0 ? void 0 : _a.toString()) !== actorId) {
-        const msg = `Another driver is assigned to this trip.`;
-        throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, msg);
-    }
     const allowed = constants_1.allowedTransitions[trip.status] || [];
     if (!allowed.includes(newStatus)) {
         const msg = `Invalid status transition from ${trip.status} to ${newStatus}.`;
+        throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, msg);
+    }
+    if (((_a = trip.driverId) === null || _a === void 0 ? void 0 : _a.toString()) !== actorId) {
+        const msg = `Another driver is assigned to this trip.`;
         throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, msg);
     }
     const now = new Date();

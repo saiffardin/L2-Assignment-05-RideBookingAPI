@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.checkAuth = void 0;
 const config_1 = require("../config");
+const constants_1 = require("../constants");
 const jwt_1 = require("../utils/jwt");
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const AppError_1 = __importDefault(require("../error-helpers/AppError"));
@@ -27,7 +28,14 @@ const checkAuth = (...authRoles) => (req, res, next) => __awaiter(void 0, void 0
             const msg = `You (${verifiedToken.role}) are not permitted for this route.`;
             throw new AppError_1.default(http_status_codes_1.default.FORBIDDEN, msg);
         }
-        yield (0, checkAccountStatus_1.checkAccountStatus)(verifiedToken.userId, verifiedToken.role);
+        const isCheckAccount = !constants_1.excludedPaths.includes(req.originalUrl);
+        console.log("req.originalUrl:", req.originalUrl);
+        console.log("req.path:", req.path);
+        console.log("excludedPaths:", constants_1.excludedPaths);
+        console.log("isCheckAccount:", isCheckAccount);
+        if (isCheckAccount) {
+            yield (0, checkAccountStatus_1.checkAccountStatus)(verifiedToken.userId, verifiedToken.role);
+        }
         req.user = verifiedToken;
         next();
     }

@@ -14,7 +14,7 @@ async function bootstrap() {
     await mongoose.connect(DATABASE_URL);
 
     console.log("--------------------------------");
-    console.log("Mongoose Connected at:", DATABASE_URL);
+    console.log("MongoDB Connected.");
 
     server = app.listen(PORT, () => {
       console.log(`Server Running on port ${PORT} `);

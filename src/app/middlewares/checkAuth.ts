@@ -1,5 +1,5 @@
 import { envVars } from "../config";
-import { RoleType } from "../constants";
+import { excludedPaths, RoleType } from "../constants";
 import { verifyToken } from "../utils/jwt";
 import httpStatusCodes from "http-status-codes";
 import AppError from "../error-helpers/AppError";
@@ -21,10 +21,19 @@ export const checkAuth =
         throw new AppError(httpStatusCodes.FORBIDDEN, msg);
       }
 
-      await checkAccountStatus(
-        verifiedToken.userId as string,
-        verifiedToken.role
-      );
+      const isCheckAccount = !excludedPaths.includes(req.originalUrl);
+
+      console.log("req.originalUrl:", req.originalUrl);
+      console.log("req.path:", req.path);
+      console.log("excludedPaths:", excludedPaths);
+      console.log("isCheckAccount:", isCheckAccount);
+
+      if (isCheckAccount) {
+        await checkAccountStatus(
+          verifiedToken.userId as string,
+          verifiedToken.role
+        );
+      }
 
       req.user = verifiedToken;
       next();
