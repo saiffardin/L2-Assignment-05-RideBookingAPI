@@ -1,5 +1,7 @@
 export enum UserAccount {
   ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
   BLOCKED = "BLOCKED",
+  UNBLOCKED = "UNBLOCKED",
+  APPROVED = "APPROVED",
+  SUSPEND = "SUSPEND",
 }

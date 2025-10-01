@@ -4,6 +4,7 @@ import { verifyToken } from "../utils/jwt";
 import httpStatusCodes from "http-status-codes";
 import AppError from "../error-helpers/AppError";
 import { NextFunction, Request, Response } from "express";
+import { checkAccountStatus } from "../utils/checkAccountStatus";
 
 export const checkAuth =
   (...authRoles: RoleType[]) =>
@@ -19,6 +20,11 @@ export const checkAuth =
         const msg = `You (${verifiedToken.role}) are not permitted for this route.`;
         throw new AppError(httpStatusCodes.FORBIDDEN, msg);
       }
+
+      await checkAccountStatus(
+        verifiedToken.userId as string,
+        verifiedToken.role
+      );
 
       req.user = verifiedToken;
       next();
